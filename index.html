@@ -14,7 +14,14 @@
     html{scroll-behavior:smooth}
     body{background:var(--black);color:var(--light);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;background:rgba(10,11,13,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-    .nav-logo img{height:48px;width:auto;display:block;filter:brightness(0) invert(1)}
+    .nav-logo{display:flex;flex-direction:column;gap:1px}
+    .nav-logo-text{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:6px;color:var(--white);line-height:1;display:flex;align-items:center;gap:2px}
+    .nav-logo-cross{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;position:relative}
+    .nav-logo-cross::before,.nav-logo-cross::after{content:'';position:absolute;background:var(--gold)}
+    .nav-logo-cross::before{width:1px;height:100%}
+    .nav-logo-cross::after{width:100%;height:1px}
+    .nav-logo-ring{position:absolute;width:14px;height:14px;border:1px solid var(--gold);border-radius:50%}
+    .nav-logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-left:2px}
     .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
     .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--silver);text-decoration:none;transition:color 0.2s}
     .nav-links a:hover{color:var(--gold)}
@@ -138,7 +145,8 @@
 <body>
 <nav>
   <div class="nav-logo">
-    <img src="logo.png" alt="Eloah Tactical" onerror="this.outerHTML='<span style=&quot;font-family:Bebas Neue,sans-serif;font-size:22px;letter-spacing:5px;color:#eef0f3&quot;>ELOAH TACTICAL</span>'"/>
+    <div class="nav-logo-text">EL<div class="nav-logo-cross"><div class="nav-logo-ring"></div></div>AH</div>
+    <div class="nav-logo-sub">Tactical</div>
   </div>
   <ul class="nav-links">
     <li><a href="#categories">Products</a></li>
