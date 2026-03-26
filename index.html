@@ -81,7 +81,7 @@
     .pc-buy{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 12px;text-decoration:none;transition:background 0.2s}
     .pc-buy:hover{background:#e0bc5a}
     .pt{position:absolute;top:0;right:0;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
-    .th{background:rgba(192,57,43,0.15);color:#e74c3c}
+    .th{background:rgba(74,100,140,0.18);color:#7a9cc8}
     .tr{background:rgba(74,127,181,0.15);color:var(--accent)}
     .trf{background:rgba(200,168,75,0.12);color:var(--gold)}
     .tsh{background:rgba(180,120,50,0.15);color:#c8834b}
@@ -193,8 +193,8 @@
 
 <section id="products">
   <div class="sec-label">Full Catalog</div>
-  <h2>All 61 Products</h2>
-  <p class="sec-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified. Click any product to purchase.</p>
+  <h2 id="cat-title">All 61 Products</h2>
+  <p class="sec-sub" id="cat-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified. Click any product to purchase.</p>
   <div class="filter-bar">
     <button class="fbtn active" onclick="fp('all',this)">All (61)</button>
     <button class="fbtn" onclick="fp('handgun',this)">Handgun (30)</button>
@@ -330,9 +330,22 @@
 <script>
   const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), {threshold:0.1});
   document.querySelectorAll('.fi-in').forEach((el,i) => { el.style.transitionDelay=(i%3)*0.1+'s'; obs.observe(el); });
+  const catInfo = {
+    'all':      { title: 'All 61 Products',         sub: '61 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 10 trusted brands.' },
+    'handgun':  { title: 'Handgun Ammunition',       sub: '30 SKUs — 9mm, .45 ACP, .38 Special, .380 ACP. FMJ, JHP, and defensive loads from 8 trusted brands.' },
+    'rifle':    { title: 'Rifle Ammunition',          sub: '20 SKUs — 5.56 NATO, .223 Rem, 6.5 PRC, .300 Blackout, 7.62x39. Training, hunting, and precision loads.' },
+    'rimfire':  { title: 'Rimfire Ammunition',        sub: '2 SKUs — Federal Gold .22 LR subsonic and NORMA TAC-22 500 round bulk target load.' },
+    'shotshell':{ title: 'Shotshell Ammunition',      sub: '3 SKUs — Aguila 12ga bulk case, Winchester AA 28ga and .410 bore target loads.' },
+    'muzzle':   { title: 'Muzzleloader',              sub: '5 SKUs — Traditions Kentucky Rifle & Pistol kits, Hornady round balls, starter kit, and supplies.' },
+    'parts':    { title: 'Parts & Accessories',       sub: '3 SKUs — Timney Savage AccuTrigger, Traditions Liquid Blue, and expanding parts selection.' },
+  };
+
   function fp(cat, btn) {
     document.querySelectorAll('.pc').forEach(c => { c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'; });
     if(btn){ document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+    const info = catInfo[cat] || catInfo['all'];
+    document.getElementById('cat-title').textContent = info.title;
+    document.getElementById('cat-sub').textContent = info.sub;
     document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
   }
   const nav = document.querySelector('nav');
