@@ -1,1469 +1,342 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eloah Tactical — Ammunition & Firearms Parts</title>
-  <meta name="description" content="Eloah Tactical offers premium ammunition, firearms parts, and shooting supplies. Nebraska-based. Trusted quality for every range day." />
+  <meta name="description" content="Eloah Tactical — Nebraska-based ammunition and firearms parts supplier. 61 SKUs from 10 trusted brands." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #0a0b0d;
-      --dark: #111318;
-      --panel: #161a21;
-      --border: #252b36;
-      --muted: #3a4252;
-      --silver: #8a93a3;
-      --light: #c8cfd8;
-      --white: #eef0f3;
-      --gold: #c8a84b;
-      --gold-dim: #8a7030;
-      --red: #c0392b;
-      --accent: #4a7fb5;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--light);
-      font-family: 'Barlow', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 72px;
-      background: rgba(10,11,13,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .nav-logo-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 26px;
-      letter-spacing: 6px;
-      color: var(--white);
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .nav-logo-cross {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      position: relative;
-    }
-
-    .nav-logo-cross::before,
-    .nav-logo-cross::after {
-      content: '';
-      position: absolute;
-      background: var(--gold);
-    }
-    .nav-logo-cross::before { width: 1px; height: 100%; }
-    .nav-logo-cross::after  { width: 100%; height: 1px; }
-
-    .nav-logo-ring {
-      position: absolute;
-      width: 14px; height: 14px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-    }
-
-    .nav-logo-sub {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      letter-spacing: 5px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-left: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--silver);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    .nav-cta {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--black) !important;
-      background: var(--gold);
-      padding: 10px 22px;
-      text-decoration: none;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: #e0bc5a !important; color: var(--black) !important; }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      padding: 120px 48px 80px;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(74,127,181,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,168,75,0.04) 0%, transparent 60%),
-        linear-gradient(160deg, #0a0b0d 0%, #111318 100%);
-    }
-
-    /* Large crosshair background */
-    .hero-crosshair {
-      position: absolute;
-      right: 8%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 480px;
-      height: 480px;
-      opacity: 0.06;
-    }
-
-    .hero-crosshair svg { width: 100%; height: 100%; }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 6px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 9vw, 120px);
-      line-height: 0.92;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 32px;
-    }
-
-    h1 span {
-      color: var(--gold);
-      display: block;
-    }
-
-    .hero-desc {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--silver);
-      max-width: 480px;
-      margin-bottom: 48px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--black);
-      padding: 16px 36px;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: #e0bc5a; transform: translateY(-1px); }
-
-    .btn-secondary {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--light);
-      padding: 16px 36px;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-block;
-    }
-    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-    .hero-stats {
-      position: absolute;
-      bottom: 60px;
-      right: 48px;
-      display: flex;
-      gap: 48px;
-      z-index: 2;
-    }
-
-    .stat {
-      text-align: right;
-    }
-
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 36px;
-      color: var(--gold);
-      letter-spacing: 2px;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* ── TICKER ── */
-    .ticker {
-      background: var(--gold);
-      padding: 12px 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 28s linear infinite;
-    }
-
-    .ticker-item {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--black);
-      margin-right: 60px;
-    }
-
-    .ticker-dot {
-      color: rgba(0,0,0,0.3);
-      margin-right: 60px;
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── SECTIONS ── */
-    section { padding: 100px 48px; }
-
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 6px;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 5vw, 64px);
-      letter-spacing: 2px;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      font-size: 15px;
-      color: var(--silver);
-      line-height: 1.7;
-      max-width: 520px;
-      margin-bottom: 60px;
-    }
-
-    /* ── CATEGORIES ── */
-    #categories { background: var(--dark); }
-
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 60px;
-    }
-
-    .cat-card {
-      background: var(--panel);
-      padding: 40px 32px;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: border-color 0.3s;
-      text-decoration: none;
-      display: block;
-    }
-
-    .cat-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-
-    .cat-card:hover { border-color: var(--muted); }
-    .cat-card:hover::before { transform: scaleX(1); }
-
-    .cat-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 24px;
-      opacity: 0.7;
-    }
-
-    .cat-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-
-    .cat-desc {
-      font-size: 13px;
-      color: var(--silver);
-      line-height: 1.6;
-    }
-
-    .cat-count {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: var(--gold-dim);
-      text-transform: uppercase;
-    }
-
-    /* ── PRODUCTS ── */
-    #products { background: var(--black); }
-
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .filter-btn {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      color: var(--silver);
-      padding: 8px 18px;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(200,168,75,0.05);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2px;
-    }
-
-    .product-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 28px;
-      position: relative;
-      transition: border-color 0.2s;
-    }
-
-    .product-card:hover { border-color: var(--muted); }
-
-    .product-brand {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--gold-dim);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .product-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-
-    .product-variant {
-      font-size: 13px;
-      color: var(--silver);
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-
-    .product-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px;
-      letter-spacing: 1px;
-      color: var(--gold);
-    }
-
-    .product-buy {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--gold);
-      padding: 8px 16px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .product-buy:hover { background: #e0bc5a; }
-
-    .product-tag {
-      position: absolute;
-      top: 0; right: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-    }
-
-    .tag-ammo    { background: rgba(192,57,43,0.15); color: #e74c3c; }
-    .tag-rifle   { background: rgba(74,127,181,0.15); color: var(--accent); }
-    .tag-rimfire { background: rgba(200,168,75,0.12); color: var(--gold); }
-    .tag-parts   { background: rgba(138,147,163,0.15); color: var(--silver); }
-    .tag-muzzle  { background: rgba(100,160,100,0.12); color: #6ca86c; }
-
-    /* ── ABOUT ── */
-    #about {
-      background: var(--dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: center;
-    }
-
-    .about-visual {
-      position: relative;
-    }
-
-    .about-box {
-      width: 100%;
-      aspect-ratio: 1;
-      max-width: 440px;
-      border: 1px solid var(--border);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-box-inner {
-      width: 75%;
-      height: 75%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* Big crosshair in about */
-    .about-crosshair {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-crosshair::before,
-    .about-crosshair::after {
-      content: '';
-      position: absolute;
-      background: var(--border);
-    }
-
-    .about-crosshair::before { width: 1px; height: 80%; }
-    .about-crosshair::after  { width: 80%; height: 1px; }
-
-    .about-circle {
-      width: 120px; height: 120px;
-      border: 1px solid var(--gold-dim);
-      border-radius: 50%;
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-circle-inner {
-      width: 72px; height: 72px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-et {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      letter-spacing: 3px;
-      color: var(--gold);
-    }
-
-    .corner-mark {
-      position: absolute;
-      width: 16px; height: 16px;
-      border-color: var(--gold);
-      border-style: solid;
-    }
-    .corner-mark.tl { top: -1px; left: -1px;  border-width: 2px 0 0 2px; }
-    .corner-mark.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-    .corner-mark.bl { bottom: -1px; left: -1px;  border-width: 0 0 2px 2px; }
-    .corner-mark.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
-    .about-coords {
-      position: absolute;
-      bottom: -32px;
-      left: 0;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    .about-text h2 { margin-bottom: 8px; }
-
-    .about-body {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--silver);
-      margin-bottom: 32px;
-    }
-
-    .about-pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .pillar {
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--gold-dim);
-    }
-
-    .pillar-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-
-    .pillar-body {
-      font-size: 13px;
-      color: var(--silver);
-      line-height: 1.5;
-    }
-
-    /* ── BRANDS ── */
-    #brands {
-      background: var(--black);
-      text-align: center;
-      padding: 60px 48px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brands-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      letter-spacing: 6px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-
-    .brands-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 32px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .brand-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px;
-      letter-spacing: 3px;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-
-    .brand-name:hover { color: var(--gold); }
-
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .contact-info h2 { margin-bottom: 24px; }
-
-    .contact-body {
-      font-size: 15px;
-      color: var(--silver);
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .contact-detail-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--gold);
-      font-size: 14px;
-    }
-
-    .contact-detail-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .contact-detail-value {
-      font-size: 15px;
-      color: var(--light);
-    }
-
-    .contact-form { }
-
-    .form-row { margin-bottom: 16px; }
-
-    .form-row input,
-    .form-row textarea,
-    .form-row select {
-      width: 100%;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      color: var(--light);
-      font-family: 'Barlow', sans-serif;
-      font-size: 14px;
-      padding: 14px 18px;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-    }
-
-    .form-row input:focus,
-    .form-row textarea:focus,
-    .form-row select:focus { border-color: var(--gold); }
-
-    .form-row textarea { resize: vertical; min-height: 120px; }
-
-    .form-row input::placeholder,
-    .form-row textarea::placeholder { color: var(--muted); }
-
-    .form-row select option { background: var(--panel); }
-
-    .form-submit {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--black);
-      border: none;
-      padding: 16px 40px;
-      cursor: pointer;
-      transition: background 0.2s;
-      width: 100%;
-    }
-
-    .form-submit:hover { background: #e0bc5a; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      padding: 48px;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .footer-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      letter-spacing: 6px;
-      color: var(--white);
-    }
-
-    .footer-logo span { color: var(--gold); }
-
-    .footer-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--gold); }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-disclaimer {
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 16px auto 0;
-      text-align: center;
-      opacity: 0.7;
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      section { padding: 64px 24px; }
-      #hero { padding: 100px 24px 64px; }
-      .hero-stats { display: none; }
-      .hero-crosshair { display: none; }
-      .cat-grid { grid-template-columns: 1fr; }
-      #about { grid-template-columns: 1fr; gap: 48px; }
-      #contact { grid-template-columns: 1fr; }
-      .about-visual { display: none; }
-      footer { padding: 32px 24px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* ── ALT LOGO SVG ── */
-    .logo-svg-container {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 60px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0b0d;--dark:#111318;--panel:#161a21;--border:#252b36;--muted:#3a4252;--silver:#8a93a3;--light:#c8cfd8;--white:#eef0f3;--gold:#c8a84b;--gold-dim:#8a7030;--red:#c0392b;--accent:#4a7fb5}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--light);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;background:rgba(10,11,13,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-logo{display:flex;flex-direction:column;gap:1px}
+    .nav-logo-text{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:6px;color:var(--white);line-height:1;display:flex;align-items:center;gap:2px}
+    .nav-logo-cross{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;position:relative}
+    .nav-logo-cross::before,.nav-logo-cross::after{content:'';position:absolute;background:var(--gold)}
+    .nav-logo-cross::before{width:1px;height:100%}
+    .nav-logo-cross::after{width:100%;height:1px}
+    .nav-logo-ring{position:absolute;width:14px;height:14px;border:1px solid var(--gold);border-radius:50%}
+    .nav-logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-left:2px}
+    .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+    .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--silver);text-decoration:none;transition:color 0.2s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{color:var(--black)!important;background:var(--gold);padding:10px 22px}
+    .nav-cta:hover{background:#e0bc5a!important}
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 48px 80px;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(74,127,181,0.06) 0%,transparent 70%),linear-gradient(160deg,#0a0b0d 0%,#111318 100%)}
+    .hero-xhair{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:480px;height:480px;opacity:0.06}
+    .hero-xhair svg{width:100%;height:100%}
+    .hero-content{position:relative;z-index:2;max-width:680px}
+    .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+    .eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+    h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,9vw,120px);line-height:0.92;letter-spacing:2px;color:var(--white);margin-bottom:32px}
+    h1 span{color:var(--gold);display:block}
+    .hero-desc{font-size:16px;line-height:1.7;color:var(--silver);max-width:480px;margin-bottom:48px}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+    .btn-p{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--black);padding:16px 36px;text-decoration:none;display:inline-block;transition:all 0.2s}
+    .btn-p:hover{background:#e0bc5a;transform:translateY(-1px)}
+    .btn-s{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--border);color:var(--light);padding:16px 36px;text-decoration:none;display:inline-block;transition:all 0.2s}
+    .btn-s:hover{border-color:var(--gold);color:var(--gold)}
+    .hero-stats{position:absolute;bottom:60px;right:48px;display:flex;gap:48px;z-index:2}
+    .stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);letter-spacing:2px;line-height:1}
+    .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-top:4px}
+    .ticker{background:var(--gold);padding:12px 0;overflow:hidden;white-space:nowrap}
+    .ticker-inner{display:inline-block;animation:tick 32s linear infinite}
+    .ti{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--black);margin-right:60px}
+    .td{color:rgba(0,0,0,0.3);margin-right:60px}
+    @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    section{padding:100px 48px}
+    .sec-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+    .sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--gold)}
+    h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:16px}
+    .sec-sub{font-size:15px;color:var(--silver);line-height:1.7;max-width:520px;margin-bottom:60px}
+    #categories{background:var(--dark)}
+    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px}
+    .cat-card{background:var(--panel);padding:40px 32px;border:1px solid var(--border);position:relative;overflow:hidden;cursor:pointer;transition:border-color 0.3s;text-decoration:none;display:block}
+    .cat-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+    .cat-card:hover{border-color:var(--muted)}
+    .cat-card:hover::before{transform:scaleX(1)}
+    .cat-icon{width:48px;height:48px;margin-bottom:24px;opacity:0.7}
+    .cat-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--white);margin-bottom:8px}
+    .cat-desc{font-size:13px;color:var(--silver);line-height:1.6}
+    .cat-count{position:absolute;top:24px;right:24px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold-dim);text-transform:uppercase}
+    #products{background:var(--black)}
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+    .fbtn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--border);color:var(--silver);padding:8px 18px;background:transparent;cursor:pointer;transition:all 0.2s}
+    .fbtn:hover,.fbtn.active{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,0.05)}
+    .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px}
+    .pc{background:var(--panel);border:1px solid var(--border);padding:22px;position:relative;transition:border-color 0.2s;display:flex;flex-direction:column}
+    .pc:hover{border-color:var(--muted)}
+    .pc-brand{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:5px}
+    .pc-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:4px}
+    .pc-var{font-size:12px;color:var(--silver);margin-bottom:14px;line-height:1.4;flex-grow:1}
+    .pc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:auto}
+    .pc-price{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--gold)}
+    .pc-price .sale{font-size:12px;color:var(--silver);text-decoration:line-through;margin-left:5px}
+    .pc-buy{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 12px;text-decoration:none;transition:background 0.2s}
+    .pc-buy:hover{background:#e0bc5a}
+    .pt{position:absolute;top:0;right:0;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
+    .th{background:rgba(192,57,43,0.15);color:#e74c3c}
+    .tr{background:rgba(74,127,181,0.15);color:var(--accent)}
+    .trf{background:rgba(200,168,75,0.12);color:var(--gold)}
+    .tsh{background:rgba(180,120,50,0.15);color:#c8834b}
+    .tm{background:rgba(100,160,100,0.12);color:#6ca86c}
+    .tpa{background:rgba(138,147,163,0.15);color:var(--silver)}
+    .ps{position:absolute;top:0;left:0;background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
+    #about{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+    .abox{width:100%;aspect-ratio:1;max-width:440px;border:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center}
+    .abox-in{width:75%;height:75%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative}
+    .axh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+    .axh::before,.axh::after{content:'';position:absolute;background:var(--border)}
+    .axh::before{width:1px;height:80%}
+    .axh::after{width:80%;height:1px}
+    .acirc{width:120px;height:120px;border:1px solid var(--gold-dim);border-radius:50%;position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+    .acirc-in{width:72px;height:72px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .aet{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--gold)}
+    .cm{position:absolute;width:16px;height:16px;border-color:var(--gold);border-style:solid}
+    .cm.tl{top:-1px;left:-1px;border-width:2px 0 0 2px}
+    .cm.tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
+    .cm.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+    .cm.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+    .acoords{position:absolute;bottom:-32px;left:0;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase}
+    .abody{font-size:15px;line-height:1.8;color:var(--silver);margin-bottom:32px}
+    .apillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+    .pillar{padding:20px;border:1px solid var(--border);border-left:2px solid var(--gold-dim)}
+    .ptitle{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    .pbody{font-size:13px;color:var(--silver);line-height:1.5}
+    #brands{background:var(--black);text-align:center;padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .bl{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:6px;color:var(--muted);text-transform:uppercase;margin-bottom:40px}
+    .brow{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:center;align-items:center}
+    .bname{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--muted);transition:color 0.2s;cursor:default}
+    .bname:hover{color:var(--gold)}
+    #contact{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .cbody{font-size:15px;color:var(--silver);line-height:1.8;margin-bottom:40px}
+    .cdet{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+    .cdet-icon{width:36px;height:36px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:14px}
+    .cdet-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+    .cdet-val{font-size:15px;color:var(--light)}
+    .fr{margin-bottom:16px}
+    .fr input,.fr textarea,.fr select{width:100%;background:var(--panel);border:1px solid var(--border);color:var(--light);font-family:'Barlow',sans-serif;font-size:14px;padding:14px 18px;outline:none;transition:border-color 0.2s;appearance:none}
+    .fr input:focus,.fr textarea:focus,.fr select:focus{border-color:var(--gold)}
+    .fr textarea{resize:vertical;min-height:120px}
+    .fr input::placeholder,.fr textarea::placeholder{color:var(--muted)}
+    .fr select option{background:var(--panel)}
+    .fsub{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--black);border:none;padding:16px 40px;cursor:pointer;transition:background 0.2s;width:100%}
+    .fsub:hover{background:#e0bc5a}
+    footer{background:var(--black);border-top:1px solid var(--border);padding:48px}
+    .fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+    .flogo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:6px;color:var(--white)}
+    .flogo span{color:var(--gold)}
+    .flinks{display:flex;gap:32px;list-style:none}
+    .flinks a{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+    .flinks a:hover{color:var(--gold)}
+    .fcopy{font-size:12px;color:var(--muted);text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+    .fdisc{font-size:11px;color:var(--muted);line-height:1.6;max-width:700px;margin:16px auto 0;text-align:center;opacity:0.7}
+    .fi-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .fi-in.vis{opacity:1;transform:none}
+    @media(max-width:900px){nav{padding:0 24px}.nav-links{display:none}section{padding:64px 24px}#hero{padding:100px 24px 64px}.hero-stats,.hero-xhair{display:none}.cat-grid{grid-template-columns:1fr}#about{grid-template-columns:1fr;gap:48px}.about-visual{display:none}#contact{grid-template-columns:1fr}footer{padding:32px 24px}.fi{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-text">
-      EL
-      <div class="nav-logo-cross">
-        <div class="nav-logo-ring"></div>
-      </div>
-      AH
-    </div>
+    <div class="nav-logo-text">EL<div class="nav-logo-cross"><div class="nav-logo-ring"></div></div>AH</div>
     <div class="nav-logo-sub">Tactical</div>
   </div>
   <ul class="nav-links">
     <li><a href="#categories">Products</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="nav-cta">Shop Now</a></li>
+    <li><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="nav-cta">Shop Now</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-
-  <div class="hero-crosshair">
-    <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="240" cy="240" r="200" stroke="white" stroke-width="0.5"/>
-      <circle cx="240" cy="240" r="140" stroke="white" stroke-width="0.5"/>
-      <circle cx="240" cy="240" r="60" stroke="white" stroke-width="1"/>
-      <line x1="240" y1="0" x2="240" y2="480" stroke="white" stroke-width="0.5"/>
-      <line x1="0" y1="240" x2="480" y2="240" stroke="white" stroke-width="0.5"/>
-      <line x1="240" y1="160" x2="240" y2="200" stroke="white" stroke-width="1.5"/>
-      <line x1="240" y1="280" x2="240" y2="320" stroke="white" stroke-width="1.5"/>
-      <line x1="160" y1="240" x2="200" y2="240" stroke="white" stroke-width="1.5"/>
-      <line x1="280" y1="240" x2="320" y2="240" stroke="white" stroke-width="1.5"/>
-    </svg>
-  </div>
-
-  <div class="hero-content fade-in visible">
-    <div class="hero-eyebrow">Nebraska-Based · Est. 2024</div>
-    <h1>
-      Precision
-      <span>Ammunition</span>
-      Built to Perform
-    </h1>
-    <p class="hero-desc">
-      Eloah Tactical supplies shooters, sportsmen, and professionals with premium ammunition and firearms parts. Every round. Every time.
-    </p>
+  <div class="hero-xhair"><svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="240" cy="240" r="200" stroke="white" stroke-width="0.5"/><circle cx="240" cy="240" r="140" stroke="white" stroke-width="0.5"/><circle cx="240" cy="240" r="60" stroke="white" stroke-width="1"/><line x1="240" y1="0" x2="240" y2="480" stroke="white" stroke-width="0.5"/><line x1="0" y1="240" x2="480" y2="240" stroke="white" stroke-width="0.5"/><line x1="240" y1="160" x2="240" y2="200" stroke="white" stroke-width="1.5"/><line x1="240" y1="280" x2="240" y2="320" stroke="white" stroke-width="1.5"/><line x1="160" y1="240" x2="200" y2="240" stroke="white" stroke-width="1.5"/><line x1="280" y1="240" x2="320" y2="240" stroke="white" stroke-width="1.5"/></svg></div>
+  <div class="hero-content fi-in vis">
+    <div class="eyebrow">Nebraska-Based · Est. 2024</div>
+    <h1>Precision<span>Ammunition</span>Built to Perform</h1>
+    <p class="hero-desc">Eloah Tactical supplies shooters, sportsmen, and professionals with premium ammunition and firearms parts. Every round. Every time.</p>
     <div class="hero-actions">
-      <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="btn-primary">Shop on GunBroker</a>
-      <a href="#categories" class="btn-secondary">View Catalog</a>
+      <a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="btn-p">Shop on GunBroker</a>
+      <a href="#categories" class="btn-s">View Catalog</a>
     </div>
   </div>
-
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">61+</div>
-      <div class="stat-label">Active SKUs</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Top Brands</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">NE</div>
-      <div class="stat-label">Based &amp; Bonded</div>
-    </div>
+    <div><div class="stat-num">61</div><div class="stat-label">Active SKUs</div></div>
+    <div><div class="stat-num">10+</div><div class="stat-label">Top Brands</div></div>
+    <div><div class="stat-num">NE</div><div class="stat-label">Based &amp; Bonded</div></div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">Freedom Munitions</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Federal Premium</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Hornady</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">PMC Bronze</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">SIG Sauer</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Winchester</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Norma</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Aguila</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Timney Triggers</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Freedom Munitions</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Federal Premium</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Hornady</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">PMC Bronze</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">SIG Sauer</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Winchester</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Norma</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Aguila</span><span class="ticker-dot">◆</span>
-    <span class="ticker-item">Timney Triggers</span><span class="ticker-dot">◆</span>
-  </div>
-</div>
+<div class="ticker"><div class="ticker-inner"><span class="ti">Freedom Munitions</span><span class="td">◆</span><span class="ti">Federal Premium</span><span class="td">◆</span><span class="ti">Hornady</span><span class="td">◆</span><span class="ti">PMC Bronze</span><span class="td">◆</span><span class="ti">SIG Sauer</span><span class="td">◆</span><span class="ti">Winchester</span><span class="td">◆</span><span class="ti">Norma</span><span class="td">◆</span><span class="ti">Aguila</span><span class="td">◆</span><span class="ti">Timney</span><span class="td">◆</span><span class="ti">Traditions</span><span class="td">◆</span><span class="ti">Freedom Munitions</span><span class="td">◆</span><span class="ti">Federal Premium</span><span class="td">◆</span><span class="ti">Hornady</span><span class="td">◆</span><span class="ti">PMC Bronze</span><span class="td">◆</span><span class="ti">SIG Sauer</span><span class="td">◆</span><span class="ti">Winchester</span><span class="td">◆</span><span class="ti">Norma</span><span class="td">◆</span><span class="ti">Aguila</span><span class="td">◆</span><span class="ti">Timney</span><span class="td">◆</span><span class="ti">Traditions</span><span class="td">◆</span></div></div>
 
-<!-- CATEGORIES -->
 <section id="categories">
-  <div class="section-label">Browse by Category</div>
+  <div class="sec-label">Browse by Category</div>
   <h2>What We Carry</h2>
-  <p class="section-sub">From everyday range ammo to defensive loads and specialty calibers — sourced from brands you trust.</p>
-
+  <p class="sec-sub">61 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 10 trusted brands.</p>
   <div class="cat-grid">
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('handgun')">
-      <div class="cat-count">9mm · .45 ACP</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2">
-        <rect x="8" y="18" width="28" height="16" rx="2"/>
-        <rect x="30" y="22" width="8" height="4" rx="1"/>
-        <rect x="14" y="30" width="8" height="8" rx="1"/>
-        <circle cx="12" cy="22" r="2"/>
-      </svg>
-      <div class="cat-name">Handgun Ammo</div>
-      <div class="cat-desc">9mm, .45 ACP — FMJ, JHP, and training loads from Freedom Munitions, Federal, PMC, Hornady & more.</div>
-    </a>
-
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('rifle')">
-      <div class="cat-count">5.56 · 6.5 PRC · .300 BLK</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2">
-        <rect x="4" y="20" width="36" height="10" rx="1"/>
-        <rect x="38" y="21" width="6" height="6" rx="1"/>
-        <rect x="12" y="26" width="6" height="8" rx="1"/>
-        <line x1="4" y1="25" x2="2" y2="25"/>
-      </svg>
-      <div class="cat-name">Rifle Ammo</div>
-      <div class="cat-desc">5.56 NATO, 6.5 PRC, .300 Blackout — precision rounds for hunting, long range, and tactical use.</div>
-    </a>
-
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('rimfire')">
-      <div class="cat-count">.22 LR</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2">
-        <circle cx="24" cy="24" r="16"/>
-        <circle cx="24" cy="24" r="8"/>
-        <circle cx="24" cy="24" r="3" fill="#c8a84b"/>
-        <line x1="24" y1="8" x2="24" y2="14"/>
-        <line x1="24" y1="34" x2="24" y2="40"/>
-        <line x1="8" y1="24" x2="14" y2="24"/>
-        <line x1="34" y1="24" x2="40" y2="24"/>
-      </svg>
-      <div class="cat-name">Rimfire</div>
-      <div class="cat-desc">.22 LR target, subsonic, and high-performance loads. Federal Gold, Norma TAC-22, and more.</div>
-    </a>
-
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('shotshell')">
-      <div class="cat-count">Shotshell</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2">
-        <rect x="18" y="8" width="12" height="32" rx="2"/>
-        <rect x="20" y="6" width="8" height="4" rx="1"/>
-        <line x1="18" y1="24" x2="30" y2="24"/>
-      </svg>
-      <div class="cat-name">Shotshell</div>
-      <div class="cat-desc">Shotshell ammunition for sport shooting, hunting, and home defense applications.</div>
-    </a>
-
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('muzzle')">
-      <div class="cat-count">.50 Cal</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#6ca86c" stroke-width="1.2">
-        <line x1="4" y1="24" x2="44" y2="24" stroke-width="2"/>
-        <rect x="36" y="20" width="6" height="8" rx="1"/>
-        <circle cx="28" cy="24" r="4"/>
-        <line x1="28" y1="18" x2="28" y2="20"/>
-        <line x1="28" y1="28" x2="28" y2="30"/>
-      </svg>
-      <div class="cat-name">Muzzleloader</div>
-      <div class="cat-desc">Traditional .50 cal kits and supplies — Traditions Kentucky Rifle, pistol kits, and round balls.</div>
-    </a>
-
-    <a href="#products" class="cat-card fade-in" onclick="filterProducts('parts')">
-      <div class="cat-count">Triggers & Accessories</div>
-      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2">
-        <circle cx="24" cy="24" r="14"/>
-        <circle cx="24" cy="24" r="4"/>
-        <line x1="24" y1="10" x2="24" y2="16"/>
-        <line x1="24" y1="32" x2="24" y2="38"/>
-        <line x1="10" y1="24" x2="16" y2="24"/>
-        <line x1="32" y1="24" x2="38" y2="24"/>
-        <line x1="14" y1="14" x2="18" y2="18"/>
-        <line x1="30" y1="30" x2="34" y2="34"/>
-        <line x1="34" y1="14" x2="30" y2="18"/>
-        <line x1="18" y1="30" x2="14" y2="34"/>
-      </svg>
-      <div class="cat-name">Parts & Accessories</div>
-      <div class="cat-desc">Timney triggers, bluing solutions, and expanding accessories for your build.</div>
-    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('handgun',this)"><div class="cat-count">9mm · .45 ACP · .38 · .380</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><rect x="8" y="18" width="28" height="16" rx="2"/><rect x="30" y="22" width="8" height="4" rx="1"/><rect x="14" y="30" width="8" height="8" rx="1"/></svg><div class="cat-name">Handgun Ammo</div><div class="cat-desc">30 SKUs — FMJ, JHP, defensive loads. Freedom Munitions, Federal, Hornady, PMC, SIG, Winchester, Aguila, American Eagle.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rifle',this)"><div class="cat-count">5.56 · .223 · 6.5 PRC · .300 BLK · 7.62</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2"><rect x="4" y="20" width="36" height="10" rx="1"/><rect x="38" y="21" width="6" height="6" rx="1"/><rect x="12" y="26" width="6" height="8" rx="1"/></svg><div class="cat-name">Rifle Ammo</div><div class="cat-desc">20 SKUs — Training, precision, hunting. Freedom Munitions, PMC Bronze, PMC X-TAC, Norma, SIG Sauer.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rimfire',this)"><div class="cat-count">.22 LR</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="3" fill="#c8a84b"/><line x1="24" y1="8" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="40"/><line x1="8" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="40" y2="24"/></svg><div class="cat-name">Rimfire</div><div class="cat-desc">2 SKUs — Federal Gold subsonic and NORMA TAC-22 500rd bulk target load.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('shotshell',this)"><div class="cat-count">12ga · 28ga · .410</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8834b" stroke-width="1.2"><rect x="18" y="8" width="12" height="32" rx="2"/><rect x="20" y="6" width="8" height="4" rx="1"/><line x1="18" y1="24" x2="30" y2="24"/></svg><div class="cat-name">Shotshell</div><div class="cat-desc">3 SKUs — Aguila 12ga bulk case, Winchester AA 28ga and .410 target loads.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('muzzle',this)"><div class="cat-count">.50 Cal Percussion</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#6ca86c" stroke-width="1.2"><line x1="4" y1="24" x2="44" y2="24" stroke-width="2"/><rect x="36" y="20" width="6" height="8" rx="1"/><circle cx="28" cy="24" r="4"/></svg><div class="cat-name">Muzzleloader</div><div class="cat-desc">5 SKUs — Traditions Kentucky Rifle &amp; Pistol kits, Hornady round balls, starter kit, and supplies.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('parts',this)"><div class="cat-count">Triggers · Accessories</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="4"/><line x1="24" y1="10" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="38"/><line x1="10" y1="24" x2="16" y2="24"/><line x1="32" y1="24" x2="38" y2="24"/></svg><div class="cat-name">Parts &amp; Accessories</div><div class="cat-desc">3 SKUs — Timney Savage AccuTrigger, Traditions Liquid Blue, and expanding parts selection.</div></a>
   </div>
 </section>
 
-<!-- PRODUCTS -->
 <section id="products">
-  <div class="section-label">Catalog</div>
-  <h2>Featured Products</h2>
-  <p class="section-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified.</p>
-
+  <div class="sec-label">Full Catalog</div>
+  <h2>All 61 Products</h2>
+  <p class="sec-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified. Click any product to purchase.</p>
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('handgun', this)">Handgun</button>
-    <button class="filter-btn" onclick="filterProducts('rifle', this)">Rifle</button>
-    <button class="filter-btn" onclick="filterProducts('rimfire', this)">Rimfire</button>
-    <button class="filter-btn" onclick="filterProducts('shotshell', this)">Shotshell</button>
-    <button class="filter-btn" onclick="filterProducts('muzzle', this)">Muzzleloader</button>
-    <button class="filter-btn" onclick="filterProducts('parts', this)">Parts</button>
+    <button class="fbtn active" onclick="fp('all',this)">All (61)</button>
+    <button class="fbtn" onclick="fp('handgun',this)">Handgun (30)</button>
+    <button class="fbtn" onclick="fp('rifle',this)">Rifle (20)</button>
+    <button class="fbtn" onclick="fp('rimfire',this)">Rimfire (2)</button>
+    <button class="fbtn" onclick="fp('shotshell',this)">Shotshell (3)</button>
+    <button class="fbtn" onclick="fp('muzzle',this)">Muzzleloader (5)</button>
+    <button class="fbtn" onclick="fp('parts',this)">Parts (3)</button>
   </div>
-
-  <div class="product-grid" id="productGrid">
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">Freedom Munitions</div>
-      <div class="product-name">9mm FMJ</div>
-      <div class="product-variant">115gr FMJ — 50, 250, 500 Box / 500 & 1,000 Case</div>
-      <div class="product-footer">
-        <div class="product-price">From $16</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">Freedom Munitions</div>
-      <div class="product-name">.45 ACP FMJ</div>
-      <div class="product-variant">230gr FMJ — 50, 250, 500 Box / 500 & 1,000 Case</div>
-      <div class="product-footer">
-        <div class="product-price">From $21</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">Federal Punch</div>
-      <div class="product-name">Defensive JHP</div>
-      <div class="product-variant">9mm 124gr JHP · .45 ACP 230gr JHP — 20 Box</div>
-      <div class="product-footer">
-        <div class="product-price">From $21</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">PMC Bronze</div>
-      <div class="product-name">9mm FMJ / JHP</div>
-      <div class="product-variant">115gr FMJ & JHP — Bulk boxes available</div>
-      <div class="product-footer">
-        <div class="product-price">From $14</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">SIG Sauer</div>
-      <div class="product-name">Elite V-Crown 9mm</div>
-      <div class="product-variant">115gr JHP — Premium defensive ammunition</div>
-      <div class="product-footer">
-        <div class="product-price">From $22</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="handgun">
-      <div class="product-tag tag-ammo">Handgun</div>
-      <div class="product-brand">Hornady</div>
-      <div class="product-name">Critical Defense</div>
-      <div class="product-variant">Handgun JHP — Multiple calibers available</div>
-      <div class="product-footer">
-        <div class="product-price">From $24</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="rifle">
-      <div class="product-tag tag-rifle">Rifle</div>
-      <div class="product-brand">Freedom Munitions</div>
-      <div class="product-name">5.56 NATO</div>
-      <div class="product-variant">55gr FMJ — 50 Box. American-made training ammo.</div>
-      <div class="product-footer">
-        <div class="product-price">$25</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="rifle">
-      <div class="product-tag tag-rifle">Rifle</div>
-      <div class="product-brand">NORMA</div>
-      <div class="product-name">6.5 PRC Golden Target</div>
-      <div class="product-variant">143gr — Precision long-range match ammunition</div>
-      <div class="product-footer">
-        <div class="product-price">Premium</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="rifle">
-      <div class="product-tag tag-rifle">Rifle</div>
-      <div class="product-brand">SIG Sauer</div>
-      <div class="product-name">.300 Blackout Elite</div>
-      <div class="product-variant">125gr FMJ Ball — Suppressor-friendly profile</div>
-      <div class="product-footer">
-        <div class="product-price">From $32</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="rimfire">
-      <div class="product-tag tag-rimfire">Rimfire</div>
-      <div class="product-brand">Federal Gold</div>
-      <div class="product-name">.22 LR Subsonic</div>
-      <div class="product-variant">40gr LRN — Subsonic — 50 Box</div>
-      <div class="product-footer">
-        <div class="product-price">$10</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="rimfire">
-      <div class="product-tag tag-rimfire">Rimfire</div>
-      <div class="product-brand">NORMA TAC-22</div>
-      <div class="product-name">.22 LR Target</div>
-      <div class="product-variant">40gr LRN — 500 Round Box</div>
-      <div class="product-footer">
-        <div class="product-price">From $40</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="muzzle">
-      <div class="product-tag tag-muzzle">Muzzleloader</div>
-      <div class="product-brand">Traditions</div>
-      <div class="product-name">Kentucky Rifle Kit</div>
-      <div class="product-variant">.50 Cal Percussion — Traditional muzzleloader build kit</div>
-      <div class="product-footer">
-        <div class="product-price">From $199</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
-    <div class="product-card" data-cat="parts">
-      <div class="product-tag tag-parts">Parts</div>
-      <div class="product-brand">Timney</div>
-      <div class="product-name">Savage AccuTrigger</div>
-      <div class="product-variant">Black — Drop-in trigger upgrade for Savage rifles</div>
-      <div class="product-footer">
-        <div class="product-price">From $120</div>
-        <a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank" class="product-buy">Buy →</a>
-      </div>
-    </div>
-
+  <div class="pgrid" id="pg">
+    <!-- HANDGUN 30 SKUs -->
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Aguila</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$17</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Aguila</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$320</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">100 Round Box</div><div class="pc-foot"><div class="pc-price">$45</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">9mm 124gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$21</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">.45 ACP 230gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$27</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$16</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">250 Round Box</div><div class="pc-foot"><div class="pc-price">$75</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$150</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$150</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="ps">SALE</div><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250 <span class="sale">$300</span></div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$21</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">250 Round Box</div><div class="pc-foot"><div class="pc-price">$100</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$200</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$200</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$400</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">9mm 115gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$30</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.38 Special 110gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$34</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.380 ACP 90gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$31</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$14</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr JHP</div><div class="pc-var">Standard Box</div><div class="pc-foot"><div class="pc-price">$27</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">300 Round Battle Pack</div><div class="pc-foot"><div class="pc-price">$100</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">900 Round Battle Pack</div><div class="pc-foot"><div class="pc-price">$300</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$400</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">Elite V-Crown 9mm 115gr JHP</div><div class="pc-var">Standard Box — Defensive</div><div class="pc-foot"><div class="pc-price">$20</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">9mm Luger 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$13</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">9mm Luger 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">.380 ACP 95gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$22</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- RIFLE 20 SKUs -->
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$240</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$246</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$480</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">6.5 PRC Golden Target 143gr</div><div class="pc-var">20 Round Box — Precision Match</div><div class="pc-foot"><div class="pc-price">$42</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$17</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">.300 Blackout 147gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$25</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$15</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma Whitetail</div><div class="pc-name">6.5 PRC 140gr PSP</div><div class="pc-var">20 Round Box — Hunting</div><div class="pc-foot"><div class="pc-price">$38</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price">$10</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$500</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price">$22</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">Contact for Price</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Inquire →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">5.56 NATO 55gr FMJ-BT</div><div class="pc-var">840 Round Ammo Can</div><div class="pc-foot"><div class="pc-price">$440</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price">$12</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$240</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$480</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price">$15</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$650</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">.300 Blackout Elite Ball FMJ</div><div class="pc-var">125gr — 20 Round Box</div><div class="pc-foot"><div class="pc-price">$34</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- RIMFIRE 2 -->
+    <div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">Federal Gold</div><div class="pc-name">.22 LR 40gr LRN Subsonic</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$10</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">NORMA TAC-22</div><div class="pc-name">.22 LR 40gr LRN Target</div><div class="pc-var">500 Round Box — High Performance</div><div class="pc-foot"><div class="pc-price">$47</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- SHOTSHELL 3 -->
+    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Aguila</div><div class="pc-name">12ga #7.5 Shot</div><div class="pc-var">2 3/4" — 250 Round Case</div><div class="pc-foot"><div class="pc-price">$120</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA</div><div class="pc-name">28ga #8 Shot</div><div class="pc-var">2 3/4" — 25 Round Box</div><div class="pc-foot"><div class="pc-price">$15</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA Super Sport</div><div class="pc-name">.410 Bore #8 Shot</div><div class="pc-var">2.5" — 25 Round Box</div><div class="pc-foot"><div class="pc-price">$19</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- MUZZLELOADER 5 -->
+    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Hornady</div><div class="pc-name">.50 Cal Round Balls</div><div class="pc-var">100 Count</div><div class="pc-foot"><div class="pc-price">$20</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Muzzle-Loaders.com</div><div class="pc-name">Traditional Basics Starter Kit</div><div class="pc-var">Complete Muzzleloader Starter Kit</div><div class="pc-foot"><div class="pc-price">$60</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Pistol Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price">$295</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Rifle Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price">$450</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- PARTS 3 -->
+    <div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Timney</div><div class="pc-name">Savage AccuTrigger (Black)</div><div class="pc-var">Drop-In Replacement — No Gunsmithing Required</div><div class="pc-foot"><div class="pc-price">$135</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Traditions</div><div class="pc-name">Liquid Blue for Steel</div><div class="pc-var">2.7oz Bottle — Cold Bluing Solution</div><div class="pc-foot"><div class="pc-price">$13</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+    <!-- Note: PMC .223 1000C listed under rifle, Traditions muzzle starter = 5th muzzle entry above -->
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-visual">
-    <div class="about-box">
-      <div class="corner-mark tl"></div>
-      <div class="corner-mark tr"></div>
-      <div class="corner-mark bl"></div>
-      <div class="corner-mark br"></div>
-      <div class="about-box-inner">
-        <div class="about-crosshair"></div>
-        <div class="about-circle">
-          <div class="about-circle-inner">
-            <div class="about-et">ET</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="about-coords">41.2565° N · 95.9345° W · Nebraska</div>
+    <div class="abox"><div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div><div class="abox-in"><div class="axh"></div><div class="acirc"><div class="acirc-in"><div class="aet">ET</div></div></div></div></div>
+    <div class="acoords">41.2565° N · 95.9345° W · Nebraska</div>
   </div>
-
-  <div class="about-text">
-    <div class="section-label">Our Story</div>
+  <div>
+    <div class="sec-label">Our Story</div>
     <h2>Built on Purpose.<br>Rooted in Nebraska.</h2>
-    <p class="about-body">
-      Eloah Tactical is a Nebraska-based, home-grown firearms and ammunition supplier built for shooters who take their craft seriously. We source from the brands you already trust — Freedom Munitions, Federal, Hornady, Norma, SIG, Winchester — and make them accessible with straightforward pricing and no-nonsense service.<br><br>
-      We're a small operation with a simple mission: get quality ammunition and parts into the hands of responsible gun owners. No fluff. No filler.
-    </p>
-
-    <div class="about-pillars">
-      <div class="pillar">
-        <div class="pillar-title">Quality</div>
-        <div class="pillar-body">Only trusted, performance-proven brands. No rebranded imports.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title">Compliance</div>
-        <div class="pillar-body">All sales fully verified and compliant. We do this right.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title">Value</div>
-        <div class="pillar-body">Competitive pricing on bulk orders, cases, and training ammo.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title">Service</div>
-        <div class="pillar-body">Real people. Real answers. Nebraska-based and responsive.</div>
-      </div>
+    <p class="abody">Eloah Tactical is a Nebraska-based firearms and ammunition supplier built for shooters who take their craft seriously. We source from the brands you already trust — Freedom Munitions, Federal, Hornady, Norma, SIG, Winchester — and make them accessible with straightforward pricing and no-nonsense service.<br><br>We're a small operation with a simple mission: get quality ammunition and parts into the hands of responsible gun owners. No fluff. No filler.</p>
+    <div class="apillars">
+      <div class="pillar"><div class="ptitle">Quality</div><div class="pbody">Only trusted, performance-proven brands. No rebranded imports.</div></div>
+      <div class="pillar"><div class="ptitle">Compliance</div><div class="pbody">All sales fully verified and compliant. We do this right.</div></div>
+      <div class="pillar"><div class="ptitle">Value</div><div class="pbody">Competitive pricing on bulk orders, cases, and training ammo.</div></div>
+      <div class="pillar"><div class="ptitle">Service</div><div class="pbody">Real people. Real answers. Nebraska-based and responsive.</div></div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS -->
 <div id="brands">
-  <div class="brands-label">Brands We Carry</div>
-  <div class="brands-row">
-    <span class="brand-name">Freedom Munitions</span>
-    <span class="brand-name">Federal</span>
-    <span class="brand-name">Hornady</span>
-    <span class="brand-name">PMC</span>
-    <span class="brand-name">SIG Sauer</span>
-    <span class="brand-name">Winchester</span>
-    <span class="brand-name">Norma</span>
-    <span class="brand-name">Aguila</span>
-    <span class="brand-name">Timney</span>
-    <span class="brand-name">Traditions</span>
-  </div>
+  <div class="bl">Brands We Carry</div>
+  <div class="brow"><span class="bname">Freedom Munitions</span><span class="bname">Federal</span><span class="bname">Hornady</span><span class="bname">PMC</span><span class="bname">SIG Sauer</span><span class="bname">Winchester</span><span class="bname">Norma</span><span class="bname">Aguila</span><span class="bname">Timney</span><span class="bname">Traditions</span></div>
 </div>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="contact-info">
-    <div class="section-label">Get in Touch</div>
+  <div>
+    <div class="sec-label">Get in Touch</div>
     <h2>Questions?<br>Let's Talk.</h2>
-    <p class="contact-body">
-      Whether you're looking for bulk pricing, a specific caliber, or want to know what's in stock — reach out. We respond fast.
-    </p>
-
-    <div class="contact-detail">
-      <div class="contact-detail-icon">✦</div>
-      <div>
-        <div class="contact-detail-label">Business</div>
-        <div class="contact-detail-value">Eloah Tactical LLC</div>
-      </div>
-    </div>
-
-    <div class="contact-detail">
-      <div class="contact-detail-icon">◎</div>
-      <div>
-        <div class="contact-detail-label">Location</div>
-        <div class="contact-detail-value">Nebraska, United States</div>
-      </div>
-    </div>
-
-    <div class="contact-detail">
-      <div class="contact-detail-icon">→</div>
-      <div>
-        <div class="contact-detail-label">Marketplace</div>
-        <div class="contact-detail-value">GunBroker — Eloah Tactical</div>
-      </div>
-    </div>
+    <p class="cbody">Whether you're looking for bulk pricing, a specific caliber, or want to know what's in stock — reach out. We respond fast.</p>
+    <div class="cdet"><div class="cdet-icon">✦</div><div><div class="cdet-lbl">Business</div><div class="cdet-val">Eloah Tactical LLC</div></div></div>
+    <div class="cdet"><div class="cdet-icon">◎</div><div><div class="cdet-lbl">Location</div><div class="cdet-val">Henderson, Nebraska</div></div></div>
+    <div class="cdet"><div class="cdet-icon">@</div><div><div class="cdet-lbl">Email</div><div class="cdet-val">office@eloahtactical.com</div></div></div>
+    <div class="cdet"><div class="cdet-icon">→</div><div><div class="cdet-lbl">Marketplace</div><div class="cdet-val">GunBroker — Eloah Tactical</div></div></div>
   </div>
-
-  <div class="contact-form">
-    <div class="form-row">
-      <input type="text" placeholder="Your Name" />
-    </div>
-    <div class="form-row">
-      <input type="email" placeholder="Email Address" />
-    </div>
-    <div class="form-row">
-      <select>
-        <option value="" disabled selected>Subject</option>
-        <option>Bulk / Case Pricing</option>
-        <option>Product Availability</option>
-        <option>Order Status</option>
-        <option>General Inquiry</option>
-      </select>
-    </div>
-    <div class="form-row">
-      <textarea placeholder="Your message..."></textarea>
-    </div>
-    <button class="form-submit">Send Message</button>
+  <div>
+    <div class="fr"><input type="text" placeholder="Your Name" /></div>
+    <div class="fr"><input type="email" placeholder="Email Address" /></div>
+    <div class="fr"><select><option value="" disabled selected>Subject</option><option>Bulk / Case Pricing</option><option>Product Availability</option><option>Order Status</option><option>General Inquiry</option></select></div>
+    <div class="fr"><textarea placeholder="Your message..."></textarea></div>
+    <button class="fsub">Send Message</button>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">ELOAH <span>TACTICAL</span></div>
-    <ul class="footer-links">
-      <li><a href="#categories">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://urldefense.com/v3/__https://www.gunbroker.com__;!!PzDBSc_ytg8U9g!7GL8tZ0r816aoQ2S92sq1y_NYWfnkN8v7ZM01dOSuJicwNfl_Pr5ftFK7lmRhZbwBUDziQgoWb5Krlmt0Dd6zrcdIoS58KLBc1Q-$" target="_blank">GunBroker Store</a></li>
-    </ul>
+  <div class="fi">
+    <div class="flogo">ELOAH <span>TACTICAL</span></div>
+    <ul class="flinks"><li><a href="#categories">Products</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank">GunBroker</a></li></ul>
   </div>
-  <div class="footer-copy">
-    © 2026 Eloah Tactical LLC — All Rights Reserved · eloahtactical.com
-  </div>
-  <div class="footer-disclaimer">
-    All firearms and ammunition sales are conducted through licensed channels in full compliance with federal, state, and local laws. Eloah Tactical LLC does not ship firearms directly. All applicable background checks and transfer requirements apply.
-  </div>
+  <div class="fcopy">© 2026 Eloah Tactical LLC — All Rights Reserved · eloahtactical.com</div>
+  <div class="fdisc">All firearms and ammunition sales are conducted through licensed channels in full compliance with federal, state, and local laws. Eloah Tactical LLC does not ship firearms directly. All applicable background checks and transfer requirements apply.</div>
 </footer>
 
 <script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach((el, i) => {
-    el.style.transitionDelay = (i % 3) * 0.1 + 's';
-    observer.observe(el);
-  });
-
-  // Product filtering
-  function filterProducts(cat, btn) {
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    if (btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), {threshold:0.1});
+  document.querySelectorAll('.fi-in').forEach((el,i) => { el.style.transitionDelay=(i%3)*0.1+'s'; obs.observe(el); });
+  function fp(cat, btn) {
+    document.querySelectorAll('.pc').forEach(c => { c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'; });
+    if(btn){ document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+    document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
   }
-
-  // Nav scroll effect
   const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav.style.borderBottomColor = 'rgba(200,168,75,0.15)';
-    } else {
-      nav.style.borderBottomColor = 'var(--border)';
-    }
-  });
+  window.addEventListener('scroll', () => { nav.style.borderBottomColor = window.scrollY>60?'rgba(200,168,75,0.15)':'var(--border)'; });
 </script>
 
 </body>
