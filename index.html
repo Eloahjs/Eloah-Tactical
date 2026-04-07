@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eloah Tactical — Ammunition & Firearms Parts</title>
-  <meta name="description" content="Eloah Tactical — Nebraska-based ammunition and firearms parts supplier. 61 SKUs from 10 trusted brands." />
+  <title>Eloah Tactical — Ammunition, Gunsmithing & Firearms Parts</title>
+  <meta name="description" content="Eloah Tactical — Nebraska-based certified gunsmithing, ammunition, and firearms parts. Owner-operated by a certified gunsmith serving Nebraska and beyond." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -46,7 +46,7 @@
     .stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);letter-spacing:2px;line-height:1}
     .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);text-transform:uppercase;margin-top:4px}
     .ticker{background:#c8a84b;padding:12px 0;overflow:hidden;white-space:nowrap}
-    .ticker-inner{display:inline-block;animation:tick 32s linear infinite}
+    .ticker-inner{display:inline-block;animation:tick 36s linear infinite}
     .ti{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#0a0b0d;margin-right:60px}
     .td{color:rgba(0,0,0,0.3);margin-right:60px}
     @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -66,6 +66,8 @@
     .cat-desc{font-size:13px;color:var(--silver);line-height:1.6}
     .cat-count{position:absolute;top:24px;right:24px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold-dim);text-transform:uppercase}
     #products{background:var(--black)}
+    .order-note{background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--gold-dim);padding:16px 24px;margin-bottom:40px;font-size:13px;color:var(--silver);line-height:1.65}
+    .order-note strong{color:var(--light);font-weight:500}
     .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
     .fbtn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--border);color:var(--silver);padding:8px 18px;background:transparent;cursor:pointer;transition:all 0.2s}
     .fbtn:hover,.fbtn.active{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,0.05)}
@@ -77,7 +79,7 @@
     .pc-var{font-size:12px;color:var(--silver);margin-bottom:14px;line-height:1.4;flex-grow:1}
     .pc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:auto}
     .pc-price{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--gold)}
-    .pc-price .sale{font-size:12px;color:var(--silver);text-decoration:line-through;margin-left:5px}
+    .pc-price.tbd{font-size:13px;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;color:var(--silver);font-weight:600}
     .pc-buy{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0a0b0d;background:var(--gold);padding:6px 12px;text-decoration:none;transition:background 0.2s}
     .pc-buy:hover{background:#e0bc5a}
     .pc-req{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;padding:6px 12px;text-decoration:none;transition:all 0.2s;border:1px solid var(--gold)}
@@ -89,8 +91,26 @@
     .tsh{background:rgba(180,120,50,0.15);color:#c8834b}
     .tm{background:rgba(100,160,100,0.12);color:#6ca86c}
     .tpa{background:rgba(138,147,163,0.15);color:var(--silver)}
-    .ps{position:absolute;top:0;left:0;background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
-    #about{background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+    .tar{background:rgba(160,100,200,0.15);color:#b07dd0}
+    .tfr{background:rgba(100,180,120,0.15);color:#64b478}
+    /* Gunsmithing section */
+    #gunsmithing{background:var(--dark)}
+    .gs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px}
+    .gs-card{background:var(--panel);border:1px solid var(--border);padding:32px;position:relative;transition:border-color 0.3s;overflow:hidden}
+    .gs-card::after{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform 0.3s}
+    .gs-card:hover{border-color:var(--muted)}
+    .gs-card:hover::after{transform:scaleY(1)}
+    .gs-icon{font-size:28px;margin-bottom:16px}
+    .gs-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--white);margin-bottom:10px}
+    .gs-desc{font-size:13px;color:var(--silver);line-height:1.65}
+    .gs-ffl{margin-top:48px;padding:24px;border:1px solid var(--border);border-left:2px solid var(--gold-dim);display:flex;gap:24px;align-items:flex-start}
+    .gs-ffl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:6px;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+    .gs-ffl-text{font-size:14px;color:var(--silver);line-height:1.7}
+    .gs-ffl-text strong{color:var(--light);font-weight:500;display:block;margin-bottom:4px;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+    .gs-cta{display:inline-block;margin-top:40px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:14px 32px;text-decoration:none;transition:all 0.2s}
+    .gs-cta:hover{background:var(--gold);color:var(--black)}
+    #about{background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
     .abox{width:100%;aspect-ratio:1;max-width:440px;border:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center}
     .abox-in{width:75%;height:75%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative}
     .axh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
@@ -111,7 +131,7 @@
     .pillar{padding:20px;border:1px solid var(--border);border-left:2px solid var(--gold-dim)}
     .ptitle{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
     .pbody{font-size:13px;color:var(--silver);line-height:1.5}
-    #brands{background:var(--black);text-align:center;padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    #brands{background:var(--dark);text-align:center;padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .bl{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:6px;color:var(--muted);text-transform:uppercase;margin-bottom:40px}
     .brow{display:flex;flex-wrap:wrap;gap:8px 32px;justify-content:center;align-items:center}
     .bname{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--muted);transition:color 0.2s;cursor:default}
@@ -141,10 +161,11 @@
     .fdisc{font-size:11px;color:var(--muted);line-height:1.6;max-width:700px;margin:16px auto 0;text-align:center;opacity:0.7}
     .fi-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
     .fi-in.vis{opacity:1;transform:none}
-    @media(max-width:900px){nav{padding:0 24px}.nav-links{display:none}section{padding:64px 24px}#hero{padding:100px 24px 64px}.hero-stats,.hero-xhair{display:none}.cat-grid{grid-template-columns:1fr}#about{grid-template-columns:1fr;gap:48px}.about-visual{display:none}#contact{grid-template-columns:1fr}footer{padding:32px 24px}.fi{flex-direction:column;align-items:flex-start}}
+    @media(max-width:900px){nav{padding:0 24px}.nav-links{display:none}section{padding:64px 24px}#hero{padding:100px 24px 64px}.hero-stats,.hero-xhair{display:none}.cat-grid{grid-template-columns:1fr}.gs-grid{grid-template-columns:1fr}#about{grid-template-columns:1fr;gap:48px}.about-visual{display:none}#contact{grid-template-columns:1fr}footer{padding:32px 24px}.fi{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
+
 <nav>
   <div class="nav-logo">
     <div class="nav-logo-text">EL<div class="nav-logo-cross"><div class="nav-logo-ring"></div></div>AH</div>
@@ -152,6 +173,7 @@
   </div>
   <ul class="nav-links">
     <li><a href="#categories">Products</a></li>
+    <li><a href="#gunsmithing">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="nav-cta">Shop Now</a></li>
@@ -161,191 +183,303 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-xhair"><svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Starburst rays from wife's logo -->
     <g opacity="0.5" stroke="white" stroke-width="1">
-      <line x1="240" y1="240" x2="240" y2="40"/>
-      <line x1="240" y1="240" x2="310" y2="55"/>
-      <line x1="240" y1="240" x2="370" y2="100"/>
-      <line x1="240" y1="240" x2="410" y2="160"/>
-      <line x1="240" y1="240" x2="435" y2="230"/>
-      <line x1="240" y1="240" x2="430" y2="300"/>
-      <line x1="240" y1="240" x2="400" y2="365"/>
-      <line x1="240" y1="240" x2="340" y2="415"/>
-      <line x1="240" y1="240" x2="270" y2="440"/>
-      <line x1="240" y1="240" x2="200" y2="440"/>
-      <line x1="240" y1="240" x2="140" y2="415"/>
-      <line x1="240" y1="240" x2="80" y2="365"/>
-      <line x1="240" y1="240" x2="50" y2="300"/>
-      <line x1="240" y1="240" x2="45" y2="230"/>
-      <line x1="240" y1="240" x2="70" y2="160"/>
-      <line x1="240" y1="240" x2="110" y2="100"/>
-      <line x1="240" y1="240" x2="170" y2="55"/>
+      <line x1="240" y1="240" x2="240" y2="40"/><line x1="240" y1="240" x2="310" y2="55"/><line x1="240" y1="240" x2="370" y2="100"/><line x1="240" y1="240" x2="410" y2="160"/><line x1="240" y1="240" x2="435" y2="230"/><line x1="240" y1="240" x2="430" y2="300"/><line x1="240" y1="240" x2="400" y2="365"/><line x1="240" y1="240" x2="340" y2="415"/><line x1="240" y1="240" x2="270" y2="440"/><line x1="240" y1="240" x2="200" y2="440"/><line x1="240" y1="240" x2="140" y2="415"/><line x1="240" y1="240" x2="80" y2="365"/><line x1="240" y1="240" x2="50" y2="300"/><line x1="240" y1="240" x2="45" y2="230"/><line x1="240" y1="240" x2="70" y2="160"/><line x1="240" y1="240" x2="110" y2="100"/><line x1="240" y1="240" x2="170" y2="55"/>
     </g>
-    <!-- Outer ring -->
     <circle cx="240" cy="240" r="160" stroke="white" stroke-width="0.5" opacity="0.3"/>
-    <!-- Crosshair O shape centered -->
     <ellipse cx="240" cy="240" rx="52" ry="60" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
     <ellipse cx="240" cy="240" rx="26" ry="30" fill="none" stroke="white" stroke-width="1" opacity="0.6"/>
-    <!-- Gold crosshair lines -->
     <line x1="240" y1="160" x2="240" y2="208" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
     <line x1="240" y1="272" x2="240" y2="320" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
     <line x1="160" y1="240" x2="212" y2="240" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
     <line x1="268" y1="240" x2="320" y2="240" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
   </svg></div>
   <div class="hero-content fi-in vis">
-    <div class="eyebrow">Nebraska-Based · Est. 2024</div>
+    <div class="eyebrow">Nebraska · Est. 2024 · Certified Gunsmith</div>
     <h1>Precision<span>Ammunition</span>Built to Perform</h1>
-    <p class="hero-desc">Eloah Tactical supplies shooters, sportsmen, and professionals with premium ammunition and firearms parts. Every round. Every time.</p>
+    <p class="hero-desc">Eloah Tactical is a Nebraska-based, owner-operated firearms business offering premium ammunition, certified gunsmithing services, and firearms parts — backed by real expertise and no-nonsense service.</p>
     <div class="hero-actions">
       <a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="btn-p">Shop on GunBroker</a>
-      <a href="#categories" class="btn-s">View Catalog</a>
+      <a href="#gunsmithing" class="btn-s">Gunsmithing Services</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div><div class="stat-num">61</div><div class="stat-label">Active SKUs</div></div>
-    <div><div class="stat-num">10+</div><div class="stat-label">Top Brands</div></div>
+    <div><div class="stat-num">58</div><div class="stat-label">Active SKUs</div></div>
+    <div><div class="stat-num">12+</div><div class="stat-label">Top Brands</div></div>
     <div><div class="stat-num">NE</div><div class="stat-label">Based &amp; Bonded</div></div>
   </div>
 </section>
 
-<div class="ticker"><div class="ticker-inner"><span class="ti">Freedom Munitions</span><span class="td">◆</span><span class="ti">Federal Premium</span><span class="td">◆</span><span class="ti">Hornady</span><span class="td">◆</span><span class="ti">PMC Bronze</span><span class="td">◆</span><span class="ti">SIG Sauer</span><span class="td">◆</span><span class="ti">Winchester</span><span class="td">◆</span><span class="ti">Norma</span><span class="td">◆</span><span class="ti">Aguila</span><span class="td">◆</span><span class="ti">Timney</span><span class="td">◆</span><span class="ti">Traditions</span><span class="td">◆</span><span class="ti">Freedom Munitions</span><span class="td">◆</span><span class="ti">Federal Premium</span><span class="td">◆</span><span class="ti">Hornady</span><span class="td">◆</span><span class="ti">PMC Bronze</span><span class="td">◆</span><span class="ti">SIG Sauer</span><span class="td">◆</span><span class="ti">Winchester</span><span class="td">◆</span><span class="ti">Norma</span><span class="td">◆</span><span class="ti">Aguila</span><span class="td">◆</span><span class="ti">Timney</span><span class="td">◆</span><span class="ti">Traditions</span><span class="td">◆</span></div></div>
+<div class="ticker"><div class="ticker-inner">
+  <span class="ti">Federal</span><span class="td">◆</span>
+  <span class="ti">Hornady</span><span class="td">◆</span>
+  <span class="ti">PMC Bronze</span><span class="td">◆</span>
+  <span class="ti">PMC X-TAC</span><span class="td">◆</span>
+  <span class="ti">SIG Sauer</span><span class="td">◆</span>
+  <span class="ti">Winchester</span><span class="td">◆</span>
+  <span class="ti">NORMA</span><span class="td">◆</span>
+  <span class="ti">Aguila</span><span class="td">◆</span>
+  <span class="ti">Timney</span><span class="td">◆</span>
+  <span class="ti">Traditions</span><span class="td">◆</span>
+  <span class="ti">Pedersoli</span><span class="td">◆</span>
+  <span class="ti">Investarm</span><span class="td">◆</span>
+  <span class="ti">Federal</span><span class="td">◆</span>
+  <span class="ti">Hornady</span><span class="td">◆</span>
+  <span class="ti">PMC Bronze</span><span class="td">◆</span>
+  <span class="ti">PMC X-TAC</span><span class="td">◆</span>
+  <span class="ti">SIG Sauer</span><span class="td">◆</span>
+  <span class="ti">Winchester</span><span class="td">◆</span>
+  <span class="ti">NORMA</span><span class="td">◆</span>
+  <span class="ti">Aguila</span><span class="td">◆</span>
+  <span class="ti">Timney</span><span class="td">◆</span>
+  <span class="ti">Traditions</span><span class="td">◆</span>
+  <span class="ti">Pedersoli</span><span class="td">◆</span>
+  <span class="ti">Investarm</span><span class="td">◆</span>
+</div></div>
 
 <section id="categories">
   <div class="sec-label">Browse by Category</div>
   <h2>What We Carry</h2>
-  <p class="sec-sub">61 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 10 trusted brands.</p>
+  <p class="sec-sub">58 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 12 trusted brands.</p>
   <div class="cat-grid">
-    <a href="#products" class="cat-card fi-in" onclick="fp('handgun',this)"><div class="cat-count">9mm · .45 ACP · .38 · .380</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><rect x="8" y="18" width="28" height="16" rx="2"/><rect x="30" y="22" width="8" height="4" rx="1"/><rect x="14" y="30" width="8" height="8" rx="1"/></svg><div class="cat-name">Handgun Ammo</div><div class="cat-desc">30 SKUs — FMJ, JHP, defensive loads. Freedom Munitions, Federal, Hornady, PMC, SIG, Winchester, Aguila, American Eagle.</div></a>
-    <a href="#products" class="cat-card fi-in" onclick="fp('rifle',this)"><div class="cat-count">5.56 · .223 · 6.5 PRC · .300 BLK · 7.62</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2"><rect x="4" y="20" width="36" height="10" rx="1"/><rect x="38" y="21" width="6" height="6" rx="1"/><rect x="12" y="26" width="6" height="8" rx="1"/></svg><div class="cat-name">Rifle Ammo</div><div class="cat-desc">20 SKUs — Training, precision, hunting. Freedom Munitions, PMC Bronze, PMC X-TAC, Norma, SIG Sauer.</div></a>
-    <a href="#products" class="cat-card fi-in" onclick="fp('rimfire',this)"><div class="cat-count">.22 LR</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="3" fill="#c8a84b"/><line x1="24" y1="8" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="40"/><line x1="8" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="40" y2="24"/></svg><div class="cat-name">Rimfire</div><div class="cat-desc">2 SKUs — Federal Gold subsonic and NORMA TAC-22 500rd bulk target load.</div></a>
-    <a href="#products" class="cat-card fi-in" onclick="fp('shotshell',this)"><div class="cat-count">12ga · 28ga · .410</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8834b" stroke-width="1.2"><rect x="18" y="8" width="12" height="32" rx="2"/><rect x="20" y="6" width="8" height="4" rx="1"/><line x1="18" y1="24" x2="30" y2="24"/></svg><div class="cat-name">Shotshell</div><div class="cat-desc">3 SKUs — Aguila 12ga bulk case, Winchester AA 28ga and .410 target loads.</div></a>
-    <a href="#products" class="cat-card fi-in" onclick="fp('muzzle',this)"><div class="cat-count">.50 Cal Percussion</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#6ca86c" stroke-width="1.2"><line x1="4" y1="24" x2="44" y2="24" stroke-width="2"/><rect x="36" y="20" width="6" height="8" rx="1"/><circle cx="28" cy="24" r="4"/></svg><div class="cat-name">Muzzleloader</div><div class="cat-desc">5 SKUs — Traditions Kentucky Rifle &amp; Pistol kits, Hornady round balls, starter kit, and supplies.</div></a>
-    <a href="#products" class="cat-card fi-in" onclick="fp('parts',this)"><div class="cat-count">Triggers · Accessories</div><svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="4"/><line x1="24" y1="10" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="38"/><line x1="10" y1="24" x2="16" y2="24"/><line x1="32" y1="24" x2="38" y2="24"/></svg><div class="cat-name">Parts &amp; Accessories</div><div class="cat-desc">3 SKUs — Timney Savage AccuTrigger, Traditions Liquid Blue, and expanding parts selection.</div></a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('handgun',this)">
+      <div class="cat-count">9mm · .45 ACP · .38 · .380</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><rect x="8" y="18" width="28" height="16" rx="2"/><rect x="30" y="22" width="8" height="4" rx="1"/><rect x="14" y="30" width="8" height="8" rx="1"/></svg>
+      <div class="cat-name">Handgun Ammo</div>
+      <div class="cat-desc">15 SKUs — FMJ, JHP, and defensive loads. Aguila, American Eagle, Federal, Hornady, PMC, SIG Sauer, Winchester.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rifle',this)">
+      <div class="cat-count">5.56 · .223 · 6.5 PRC · .300 BLK · 7.62</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2"><rect x="4" y="20" width="36" height="10" rx="1"/><rect x="38" y="21" width="6" height="6" rx="1"/><rect x="12" y="26" width="6" height="8" rx="1"/></svg>
+      <div class="cat-name">Rifle Ammo</div>
+      <div class="cat-desc">15 SKUs — Training, precision, hunting. NORMA, PMC Bronze, PMC X-TAC, SIG Sauer.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rimfire',this)">
+      <div class="cat-count">.22 LR</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="3" fill="#c8a84b"/><line x1="24" y1="8" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="40"/><line x1="8" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="40" y2="24"/></svg>
+      <div class="cat-name">Rimfire</div>
+      <div class="cat-desc">2 SKUs — Federal Gold .22 LR subsonic and NORMA TAC-22 500rd bulk target load.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('shotshell',this)">
+      <div class="cat-count">12ga · 28ga · .410</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8834b" stroke-width="1.2"><rect x="18" y="8" width="12" height="32" rx="2"/><rect x="20" y="6" width="8" height="4" rx="1"/><line x1="18" y1="24" x2="30" y2="24"/></svg>
+      <div class="cat-name">Shotshell</div>
+      <div class="cat-desc">3 SKUs — Aguila 12ga bulk, Winchester AA 28ga and .410 bore target loads.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('muzzle',this)">
+      <div class="cat-count">.50 Cal · .54 Cal Percussion</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#6ca86c" stroke-width="1.2"><line x1="4" y1="24" x2="44" y2="24" stroke-width="2"/><rect x="36" y="20" width="6" height="8" rx="1"/><circle cx="28" cy="24" r="4"/></svg>
+      <div class="cat-name">Muzzleloader</div>
+      <div class="cat-desc">13 SKUs — Traditional rifles and pistol kits, Hornady projectiles, and starter supplies. Traditions, Pedersoli, Investarm.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('parts',this)">
+      <div class="cat-count">AR-15 Uppers · Triggers · Supplies</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="4"/><line x1="24" y1="10" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="38"/><line x1="10" y1="24" x2="16" y2="24"/><line x1="32" y1="24" x2="38" y2="24"/></svg>
+      <div class="cat-name">Parts &amp; Accessories</div>
+      <div class="cat-desc">7 SKUs — AR-15 upper assemblies (budget through tactical), Timney Savage AccuTrigger, and Traditions Liquid Blue.</div>
+    </a>
   </div>
 </section>
 
 <section id="products">
   <div class="sec-label">Full Catalog</div>
-  <h2 id="cat-title">All 61 Products</h2>
-  <p class="sec-sub" id="cat-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified. Click any product to purchase.</p>
+  <h2 id="cat-title">All 58 Products</h2>
+  <p class="sec-sub" id="cat-sub">All orders fulfilled through GunBroker — secure, compliant, and fully verified. Contact us for pricing on items marked "Inquire."</p>
+  <div class="order-note"><strong>How ordering works:</strong> Eloah Tactical operates on an order-on-demand model — products are sourced from distributors upon a confirmed order rather than held in bulk. Items showing a price can be ordered directly. Items marked <strong>"Inquire"</strong> are available by request — contact us for current pricing and availability.</div>
   <div class="filter-bar">
-    <button class="fbtn active" onclick="fp('all',this)">All (61)</button>
-    <button class="fbtn" onclick="fp('handgun',this)">Handgun (30)</button>
-    <button class="fbtn" onclick="fp('rifle',this)">Rifle (20)</button>
+    <button class="fbtn active" onclick="fp('all',this)">All (58)</button>
+    <button class="fbtn" onclick="fp('handgun',this)">Handgun (15)</button>
+    <button class="fbtn" onclick="fp('rifle',this)">Rifle (15)</button>
     <button class="fbtn" onclick="fp('rimfire',this)">Rimfire (2)</button>
     <button class="fbtn" onclick="fp('shotshell',this)">Shotshell (3)</button>
-    <button class="fbtn" onclick="fp('muzzle',this)">Muzzleloader (5)</button>
-    <button class="fbtn" onclick="fp('parts',this)">Parts (3)</button>
+    <button class="fbtn" onclick="fp('muzzle',this)">Muzzleloader (13)</button>
+    <button class="fbtn" onclick="fp('parts',this)">Parts (7)</button>
   </div>
   <div class="pgrid" id="pg">
-    <!-- HANDGUN 30 SKUs -->
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Aguila</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$17</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Aguila%209mm%20115gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Aguila%209mm%20115gr%20FMJ%2050%20Box%0ASKU%3A%20AG-9-115-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Aguila</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$320</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20American%20Eagle%209mm%20115gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20American%20Eagle%209mm%20115gr%20FMJ%2050%20Box%0ASKU%3A%20FEDAE-9-115-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">100 Round Box</div><div class="pc-foot"><div class="pc-price">$45</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">9mm 124gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$21</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Federal%20Punch%209mm%20124gr%20JHP%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Federal%20Punch%209mm%20124gr%20JHP%2020%20Box%0ASKU%3A%20FEDP-9-124-JHP-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">.45 ACP 230gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$27</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Federal%20Punch%20.45%20ACP%20230gr%20JHP%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Federal%20Punch%20.45%20ACP%20230gr%20JHP%2020%20Box%0ASKU%3A%20FEDP-45-230-JHP-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$16</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Freedom%20Munitions%209mm%20115gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Freedom%20Munitions%209mm%20115gr%20FMJ%2050%20Box%0ASKU%3A%20FM-9-115-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">250 Round Box</div><div class="pc-foot"><div class="pc-price">$75</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$150</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$150</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="ps">SALE</div><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250 <span class="sale">$300</span></div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$21</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Freedom%20Munitions%20.45%20ACP%20230gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Freedom%20Munitions%20.45%20ACP%20230gr%20FMJ%2050%20Box%0ASKU%3A%20FM-45-230-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">250 Round Box</div><div class="pc-foot"><div class="pc-price">$100</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$200</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$200</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$400</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">9mm 115gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$30</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Hornady%20Critical%20Defense%209mm%20115gr%20FTX%2025%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Hornady%20Critical%20Defense%209mm%20115gr%20FTX%2025%20Box%0ASKU%3A%20HCD-9115-FTX-25%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.38 Special 110gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$34</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Hornady%20Critical%20Defense%20.38%20Special%20110gr%20FTX%2025%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Hornady%20Critical%20Defense%20.38%20Special%20110gr%20FTX%2025%20Box%0ASKU%3A%20HCD-38-110-FTX-25%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.380 ACP 90gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price">$31</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Hornady%20Critical%20Defense%20.380%20ACP%2090gr%20FTX%2025%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Hornady%20Critical%20Defense%20.380%20ACP%2090gr%20FTX%2025%20Box%0ASKU%3A%20HCD-380ACP-90-FTX-25%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$14</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20Bronze%209mm%20115gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20Bronze%209mm%20115gr%20FMJ%2050%20Box%0ASKU%3A%20PMC-9-115-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr JHP</div><div class="pc-var">Standard Box</div><div class="pc-foot"><div class="pc-price">$27</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20Bronze%209mm%20115gr%20JHP&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20Bronze%209mm%20115gr%20JHP%0ASKU%3A%20G428859%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">300 Round Battle Pack</div><div class="pc-foot"><div class="pc-price">$100</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">900 Round Battle Pack</div><div class="pc-foot"><div class="pc-price">$300</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20Bronze%20.45%20ACP%20230gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20Bronze%20.45%20ACP%20230gr%20FMJ%2050%20Box%0ASKU%3A%20PMC-45ACP-230-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$400</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">Elite V-Crown 9mm 115gr JHP</div><div class="pc-var">Standard Box — Defensive</div><div class="pc-foot"><div class="pc-price">$20</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20SIG%20Sauer%20Elite%20V-Crown%209mm%20115gr%20JHP&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20SIG%20Sauer%20Elite%20V-Crown%209mm%20115gr%20JHP%0ASKU%3A%20164000W%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">9mm Luger 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$13</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Winchester%209mm%20Luger%20115gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Winchester%209mm%20Luger%20115gr%20FMJ%2050%20Box%0ASKU%3A%20WIN-9MM-115-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">9mm Luger 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$250</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">.380 ACP 95gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$22</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Winchester%20.380%20ACP%2095gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Winchester%20.380%20ACP%2095gr%20FMJ%2050%20Box%0ASKU%3A%20WIN-380ACP-95-FMJ-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <!-- RIFLE 20 SKUs -->
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$25</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Freedom%20Munitions%205.56%20NATO%2055gr%20FMJ%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Freedom%20Munitions%205.56%20NATO%2055gr%20FMJ%2050%20Box%0ASKU%3A%20162985X%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Box</div><div class="pc-foot"><div class="pc-price">$240</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price">$246</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Freedom Munitions</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$480</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">6.5 PRC Golden Target 143gr</div><div class="pc-var">20 Round Box — Precision Match</div><div class="pc-foot"><div class="pc-price">$42</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$17</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Norma%205.56%20NATO%2055gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Norma%205.56%20NATO%2055gr%20FMJ%2020%20Box%0ASKU%3A%20NOR-556-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">.300 Blackout 147gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$25</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Norma%20.300%20Blackout%20147gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Norma%20.300%20Blackout%20147gr%20FMJ%2020%20Box%0ASKU%3A%20NOR-300BLK-147-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price">$15</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Norma%207.62x39%20123gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Norma%207.62x39%20123gr%20FMJ%2020%20Box%0ASKU%3A%20NOR-76239-123-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">Norma Whitetail</div><div class="pc-name">6.5 PRC 140gr PSP</div><div class="pc-var">20 Round Box — Hunting</div><div class="pc-foot"><div class="pc-price">$38</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price">$10</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20Bronze%20.223%20Rem%2055gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20Bronze%20.223%20Rem%2055gr%20FMJ%2020%20Box%0ASKU%3A%20PMC-223-55-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">$500</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price">$22</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20Bronze%207.62x39%20123gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20Bronze%207.62x39%20123gr%20FMJ%2020%20Box%0ASKU%3A%20PMC-76239-123-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price">Contact for Price</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Inquire →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">5.56 NATO 55gr FMJ-BT</div><div class="pc-var">840 Round Ammo Can</div><div class="pc-foot"><div class="pc-price">$440</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price">$12</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20X-TAC%205.56%20NATO%2055gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20X-TAC%205.56%20NATO%2055gr%20FMJ%2020%20Box%0ASKU%3A%20PMCX-556-55-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">500 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$240</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$480</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price">$15</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20PMC%20X-TAC%205.56%20NATO%2062gr%20FMJ%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20PMC%20X-TAC%205.56%20NATO%2062gr%20FMJ%2020%20Box%0ASKU%3A%20PMCX-556-62-FMJ-20%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price">$650</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">.300 Blackout Elite Ball FMJ</div><div class="pc-var">125gr — 20 Round Box</div><div class="pc-foot"><div class="pc-price">$34</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20SIG%20Sauer%20.300%20Blackout%20Elite%20Ball%20FMJ%20125gr%2020%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20SIG%20Sauer%20.300%20Blackout%20Elite%20Ball%20FMJ%20125gr%2020%20Box%0ASKU%3A%20J237761%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <!-- RIMFIRE 2 -->
-    <div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">Federal Gold</div><div class="pc-name">.22 LR 40gr LRN Subsonic</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$10</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Federal%20Gold%20.22%20LR%2040gr%20Subsonic%2050%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Federal%20Gold%20.22%20LR%2040gr%20Subsonic%2050%20Box%0ASKU%3A%20FEDG-22LR-LRN-SUB-50%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">NORMA TAC-22</div><div class="pc-name">.22 LR 40gr LRN Target</div><div class="pc-var">500 Round Box — High Performance</div><div class="pc-foot"><div class="pc-price">$47</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <!-- SHOTSHELL 3 -->
-    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Aguila</div><div class="pc-name">12ga #7.5 Shot</div><div class="pc-var">2 3/4" — 250 Round Case</div><div class="pc-foot"><div class="pc-price">$120</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA</div><div class="pc-name">28ga #8 Shot</div><div class="pc-var">2 3/4" — 25 Round Box</div><div class="pc-foot"><div class="pc-price">$15</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Winchester%20AA%2028ga%20%238%20Shot%2025%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Winchester%20AA%2028ga%20%238%20Shot%2025%20Box%0ASKU%3A%20SH-28-275-8-25-WAA%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA Super Sport</div><div class="pc-name">.410 Bore #8 Shot</div><div class="pc-var">2.5" — 25 Round Box</div><div class="pc-foot"><div class="pc-price">$19</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Winchester%20AA%20Super%20Sport%20.410%20Bore%20%238%20Shot%2025%20Box&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Winchester%20AA%20Super%20Sport%20.410%20Bore%20%238%20Shot%2025%20Box%0ASKU%3A%20SH-410-250-8-25-WAAS%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <!-- MUZZLELOADER 5 -->
-    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Hornady</div><div class="pc-name">.50 Cal Round Balls</div><div class="pc-var">100 Count</div><div class="pc-foot"><div class="pc-price">$20</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Hornady%20.50%20Cal%20Round%20Balls%20100%20Count&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Hornady%20.50%20Cal%20Round%20Balls%20100%20Count%0ASKU%3A%206515423%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Muzzle-Loaders.com</div><div class="pc-name">Traditional Basics Starter Kit</div><div class="pc-var">Complete Muzzleloader Starter Kit</div><div class="pc-foot"><div class="pc-price">$60</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Pistol Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price">$295</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Rifle Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price">$450</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <!-- PARTS 3 -->
-    <div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Timney</div><div class="pc-name">Savage AccuTrigger (Black)</div><div class="pc-var">Drop-In Replacement — No Gunsmithing Required</div><div class="pc-foot"><div class="pc-price">$135</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
-    <div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Traditions</div><div class="pc-name">Liquid Blue for Steel</div><div class="pc-var">2.7oz Bottle — Cold Bluing Solution</div><div class="pc-foot"><div class="pc-price">$13</div><a href="mailto:office@eloahtactical.com?subject=Order%20Request%3A%20Traditions%20Liquid%20Blue%20for%20Steel%202.7oz&body=Hello%2C%0A%0AI%20would%20like%20to%20order%3A%0A%0AProduct%3A%20Traditions%20Liquid%20Blue%20for%20Steel%202.7oz%0ASKU%3A%208099860%0AQuantity%3A%20%0A%0APlease%20send%20me%20an%20invoice.%0A%0AThank%20you" class="pc-req">Request →</a></div></div>
-    <!-- Note: PMC .223 1000C listed under rifle, Traditions muzzle starter = 5th muzzle entry above -->
+
+```
+<!-- HANDGUN 15 -->
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Aguila</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price">$31</div><a href="mailto:office@eloahtactical.com?subject=Order%3A%20Aguila%209mm%20115gr%20FMJ%2050%20Box%20(AG-9-115-FMJ-50)" class="pc-req">Request →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20American%20Eagle%209mm%20115gr%20FMJ%2050%20Box%20(FEDAE-9-115-FMJ-50)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">American Eagle</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">100 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20American%20Eagle%209mm%20115gr%20FMJ%20100%20Box%20(FEDAE-9-115-FMJ-100)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">9mm 124gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Federal%20Punch%209mm%20124gr%20JHP%20(FEDP-9-124-JHP-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Federal Punch</div><div class="pc-name">.45 ACP 230gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Federal%20Punch%20.45%20ACP%20230gr%20JHP%20(FEDP-45-230-JHP-50)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">9mm 115gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Hornady%20Critical%20Defense%209mm%20115gr%20FTX%20(HCD-9-115-FTX-25)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.38 Special 110gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Hornady%20Critical%20Defense%20.38%20Special%20110gr%20(HCD-38-110-FTX-25)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Hornady Critical Defense</div><div class="pc-name">.380 ACP 90gr FTX</div><div class="pc-var">25 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Hornady%20Critical%20Defense%20.380%20ACP%2090gr%20(HCD-380ACP-90-FTX-25)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20Bronze%209mm%20115gr%20JHP%20(PMC-9-115-JHP-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20Bronze%209mm%20115gr%20FMJ%2050%20(PMC-9-115-FMJ-50)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">9mm 115gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20Bronze%20.45%20ACP%20230gr%20FMJ%2050%20(PMC-45ACP-230-FMJ-50)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.45 ACP 230gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">Elite V-Crown 9mm 115gr JHP</div><div class="pc-var">20 Round Box — Defensive</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20SIG%20Sauer%20Elite%20V-Crown%209mm%20115gr%20JHP%20(SIGS-9-115-JHP-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="handgun"><div class="pt th">Handgun</div><div class="pc-brand">Winchester</div><div class="pc-name">9mm Luger 115gr FMJ</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Winchester%209mm%20Luger%20115gr%20FMJ%2050%20(WIN-9MM-115-FMJ-50)" class="pc-req">Inquire →</a></div></div>
+
+<!-- RIFLE 15 -->
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">6.5 PRC Golden Target 143gr BTHP</div><div class="pc-var">20 Round Box — Precision Match</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20NORMA%205.56%20NATO%2055gr%20FMJ%2020%20(NOR-556-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">.300 Blackout 147gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20NORMA%20.300%20Blackout%20147gr%20FMJ%20(NOR-300BLK-147-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box — Range &amp; Training</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20NORMA%207.62x39%20123gr%20FMJ%20(NOR-76239-123-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">NORMA Whitetail</div><div class="pc-name">6.5 PRC 140gr PSP</div><div class="pc-var">20 Round Box — Hunting</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20Bronze%20.223%20Rem%2055gr%20FMJ%2020%20(PMC-223-55-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">.223 Rem 55gr FMJ</div><div class="pc-var">1,000 Round Case</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20Bronze%207.62x39%20123gr%20FMJ%2020%20(PMC-76239-123-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">7.62x39 123gr FMJ</div><div class="pc-var">500 Round Case</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC Bronze</div><div class="pc-name">5.56 NATO 55gr FMJ-BT</div><div class="pc-var">840 Round Ammo Can</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20X-TAC%205.56%20NATO%2055gr%20FMJ%2020%20(PMCX-556-55-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 55gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">20 Round Box — Military Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20PMC%20X-TAC%205.56%20NATO%2062gr%20FMJ%2020%20(PMCX-556-62-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">PMC X-TAC</div><div class="pc-name">5.56 NATO 62gr FMJ</div><div class="pc-var">1,000 Round Case — Military Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="rifle"><div class="pt tr">Rifle</div><div class="pc-brand">SIG Sauer</div><div class="pc-name">.300 Blackout Elite Ball FMJ 125gr</div><div class="pc-var">20 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20SIG%20Sauer%20.300%20Blackout%20125gr%20FMJ%20(SIGS-300BLK-125-FMJ-20)" class="pc-req">Inquire →</a></div></div>
+
+<!-- RIMFIRE 2 -->
+<div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">Federal Gold</div><div class="pc-name">.22 LR 40gr LRN Subsonic</div><div class="pc-var">50 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Federal%20Gold%20.22%20LR%2040gr%20Subsonic%20(FEDG-22LR-LRN-SUB-50)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="rimfire"><div class="pt trf">Rimfire</div><div class="pc-brand">NORMA TAC-22</div><div class="pc-name">.22 LR 40gr LRN Target</div><div class="pc-var">500 Round Box — High Performance</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+
+<!-- SHOTSHELL 3 -->
+<div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Aguila</div><div class="pc-name">12ga #7.5 Shot</div><div class="pc-var">2¾" — 250 Round Case</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA</div><div class="pc-name">28ga #8 Shot</div><div class="pc-var">2¾" — 25 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Winchester%20AA%2028ga%20%238%20Shot%2025%20(WINSH-28-275-8-25-WAA)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="shotshell"><div class="pt tsh">Shotshell</div><div class="pc-brand">Winchester AA Super Sport</div><div class="pc-name">.410 Bore #8 Shot</div><div class="pc-var">2.5" — 25 Round Box</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Winchester%20AA%20Super%20Sport%20.410%20Bore%20(WINSH-410-250-8-25-WAAS)" class="pc-req">Inquire →</a></div></div>
+
+<!-- MUZZLELOADER 13 -->
+<div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Hornady</div><div class="pc-name">.50 Cal Round Balls</div><div class="pc-var">100 Count</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Hornady%20.50%20Cal%20Round%20Balls%20100ct%20(6515423)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Muzzle-Loaders.com</div><div class="pc-name">Traditional Basics Starter Kit</div><div class="pc-var">Complete .50 Cal Muzzleloader Starter Kit</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Pistol Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tm">Muzzleloader</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Rifle Kit</div><div class="pc-var">.50 Cal Percussion — Complete Build Kit</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Traditions</div><div class="pc-name">Deerhunter Rifle</div><div class="pc-var">.50 Cal Percussion — Traditional Flintlock</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Traditions%20Deerhunter%20Rifle%20.50%20Cal%20(TRAD-RIFLE-50CAL-DEERHUNTER)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Traditions</div><div class="pc-name">Kentucky Rifle</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Traditions%20Kentucky%20Rifle%20.50%20Cal%20(TRAD-RIFLE-50CAL-KENTUCKY)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Traditions</div><div class="pc-name">Deluxe Kentucky Rifle</div><div class="pc-var">.50 Cal Percussion — Premium Finish</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Traditions%20Deluxe%20Kentucky%20Rifle%20(TRAD-RIFLE-50CAL-DELUXE-KENTUCKY)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Traditions</div><div class="pc-name">Mountain Rifle</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Traditions%20Mountain%20Rifle%20.50%20Cal%20(TRAD-RIFLE-50CAL-MOUNTAIN-R9350801)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Traditions</div><div class="pc-name">Pennsylvania Carbine</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Traditions%20Pennsylvania%20Carbine%20(TRAD-RIFLE-50CAL-PENNSYLVANIA-CARBINE)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Investarm</div><div class="pc-name">Deerstalker Rifle</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Investarm%20Deerstalker%20Rifle%20(INVEST-RIFLE-50CAL-DEERSTALKER)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Investarm</div><div class="pc-name">Hawken Rifle</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Investarm%20Hawken%20Rifle%20(INVEST-RIFLE-50CAL-HAWKEN)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Pedersoli</div><div class="pc-name">Pennsylvania Rifle</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Pedersoli%20Pennsylvania%20Rifle%20(PED-RIFLE-50CAL-PENNSYLVANIA)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="muzzle"><div class="pt tfr">Firearm</div><div class="pc-brand">Pedersoli</div><div class="pc-name">Missouri River Hawken</div><div class="pc-var">.50 Cal Percussion</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20Pedersoli%20Missouri%20River%20Hawken%20(PED-RIFLE-50CAL-MISSOURI-RIVER)" class="pc-req">Inquire →</a></div></div>
+
+<!-- PARTS 7 -->
+<div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Timney</div><div class="pc-name">Savage AccuTrigger (Black)</div><div class="pc-var">Drop-In Replacement — No Gunsmithing Required</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank" class="pc-buy">Buy →</a></div></div>
+<div class="pc" data-cat="parts"><div class="pt tpa">Parts</div><div class="pc-brand">Traditions</div><div class="pc-name">Liquid Blue for Steel</div><div class="pc-var">2.7oz Bottle — Cold Bluing Solution</div><div class="pc-foot"><div class="pc-price">$13</div><a href="mailto:office@eloahtactical.com?subject=Order%3A%20Traditions%20Liquid%20Blue%202.7oz%20(TRAD-BLUE-2.70OZ)" class="pc-req">Request →</a></div></div>
+<div class="pc" data-cat="parts"><div class="pt tar">AR-15</div><div class="pc-brand">Midwest Gun Works</div><div class="pc-name">AR-15 5.56 16" Budget Upper</div><div class="pc-var">Complete Upper Assembly — Entry Level</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20AR-15%20Budget%20Upper%20(MGW-PARTS-AR15-556-16-BUDGET-UPPER)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="parts"><div class="pt tar">AR-15</div><div class="pc-brand">Midwest Gun Works</div><div class="pc-name">AR-15 5.56 16" Mid Upper</div><div class="pc-var">Complete Upper Assembly — Mid Tier</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20AR-15%20Mid%20Upper%20(MGW-PARTS-AR15-556-16-MID-UPPER)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="parts"><div class="pt tar">AR-15</div><div class="pc-brand">FN / Midwest Gun Works</div><div class="pc-name">AR-15 5.56 16" Carbine Upper</div><div class="pc-var">Complete Upper Assembly — Carbine Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20AR-15%20Carbine%20Upper%20(FN-PARTS-AR15-556-16-CARBINE-UPPER)" class="pc-req">Inquire →</a></div></div>
+<div class="pc" data-cat="parts"><div class="pt tar">AR-15</div><div class="pc-brand">FN / Midwest Gun Works</div><div class="pc-name">AR-15 5.56 16" TAC3 Upper</div><div class="pc-var">Complete Upper Assembly — Tactical Grade</div><div class="pc-foot"><div class="pc-price tbd">Inquire</div><a href="mailto:office@eloahtactical.com?subject=Inquiry%3A%20AR-15%20TAC3%20Upper%20(FN-PARTS-AR15-556-16-TAC3-UPPER)" class="pc-req">Inquire →</a></div></div>
+```
+
   </div>
+</section>
+
+<!-- ═══ GUNSMITHING SECTION ═══ -->
+
+<section id="gunsmithing">
+  <div class="sec-label">Professional Services</div>
+  <h2>Certified<br>Gunsmithing</h2>
+  <p class="sec-sub">John Saulsberry is a certified gunsmith serving customers across Nebraska. Hands-on expertise that no online-only competitor can replicate.</p>
+  <div class="gs-grid">
+    <div class="gs-card fi-in">
+      <div class="gs-icon">🔧</div>
+      <div class="gs-name">Cleaning &amp; Maintenance</div>
+      <div class="gs-desc">Full detail cleaning, function check, and inspection. Keep your firearms operating reliably season after season — pistols, rifles, and shotguns.</div>
+    </div>
+    <div class="gs-card fi-in">
+      <div class="gs-icon">🔍</div>
+      <div class="gs-name">Repair &amp; Diagnosis</div>
+      <div class="gs-desc">Malfunction diagnosis and repair across a wide range of platforms. If it's not running right, we'll find out why and fix it.</div>
+    </div>
+    <div class="gs-card fi-in">
+      <div class="gs-icon">⚙️</div>
+      <div class="gs-name">Parts Installation</div>
+      <div class="gs-desc">Trigger upgrades, sight installation, stock fitting, and component replacement. Done correctly, with the right tools, the first time.</div>
+    </div>
+    <div class="gs-card fi-in">
+      <div class="gs-icon">🎯</div>
+      <div class="gs-name">Customization &amp; Modification</div>
+      <div class="gs-desc">Platform-specific modifications and customization to fit your shooting style, application, and preferences.</div>
+    </div>
+    <div class="gs-card fi-in">
+      <div class="gs-icon">🏗️</div>
+      <div class="gs-name">Custom Build Consultation</div>
+      <div class="gs-desc">Planning a custom build? Get certified expert guidance on parts selection, compatibility, and configuration before you spend a dollar.</div>
+    </div>
+    <div class="gs-card fi-in">
+      <div class="gs-icon">🎨</div>
+      <div class="gs-name">Cerakote Finishing</div>
+      <div class="gs-desc">Durable, professional Cerakote application — coming soon. Contact us to get on the list for availability and color options.</div>
+    </div>
+  </div>
+  <div class="gs-ffl">
+    <div class="gs-ffl-dot"></div>
+    <div class="gs-ffl-text">
+      <strong>FFL Transfer Services — Coming Soon</strong>
+      Eloah Tactical is in the process of obtaining its Federal Firearms License. Upon issuance, the business will offer FFL transfer services for customers who purchase firearms online and need a licensed local dealer for the background check and transfer. Contact us to be notified when transfers become available.
+    </div>
+  </div>
+  <a href="mailto:office@eloahtactical.com?subject=Gunsmithing%20Service%20Inquiry&body=Hello%2C%0A%0AI%20am%20interested%20in%20gunsmithing%20services.%0A%0AFirearm%20type%3A%20%0AService%20needed%3A%20%0AAvailability%3A%20%0A%0AThank%20you" class="gs-cta">Schedule a Service →</a>
 </section>
 
 <section id="about">
   <div class="about-visual">
-    <div class="abox"><div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div><div class="abox-in"><div class="axh"></div><div class="acirc"><div class="acirc-in"><div class="aet">ET</div></div></div></div></div>
-    <div class="acoords">41.2565° N · 95.9345° W · Nebraska</div>
+    <div class="abox"><div class="cm tl"></div><div class="cm tr"></div><div class="cm bl"></div><div class="cm br"></div>
+      <div class="abox-in"><div class="axh"></div><div class="acirc"><div class="acirc-in"><div class="aet">ET</div></div></div></div>
+    </div>
+    <div class="acoords">Nebraska · Lincoln Metro Corridor</div>
   </div>
   <div>
     <div class="sec-label">Our Story</div>
     <h2>Built on Purpose.<br>Rooted in Nebraska.</h2>
-    <p class="abody">Eloah Tactical is a Nebraska-based firearms and ammunition supplier built for shooters who take their craft seriously. We source from the brands you already trust — Freedom Munitions, Federal, Hornady, Norma, SIG, Winchester — and make them accessible with straightforward pricing and no-nonsense service.<br><br>We're a small operation with a simple mission: get quality ammunition and parts into the hands of responsible gun owners. No fluff. No filler.</p>
+    <p class="abody">The name Eloah comes from a Hebrew term meaning strength and singular power — qualities that define how this business operates. Eloah Tactical is a Nebraska-based, owner-operated firearms business founded by John Saulsberry, a certified gunsmith with deep hands-on knowledge across a wide range of firearms platforms.<br><br>John's professional background in banking and regulatory compliance shapes how the business is run: with financial discipline, full regulatory adherence, and accountability at every step. We source from the brands you already trust — Federal, Hornady, NORMA, SIG Sauer, Winchester, Traditions, Pedersoli — and deliver them with straightforward pricing and genuine expertise that no online-only dealer can match.<br><br>The business is currently relocating within the Lincoln metro corridor, with a property strategy that will support a dedicated gunsmithing workspace and, contingent on zoning, a customer-facing storefront as growth warrants.</p>
     <div class="apillars">
-      <div class="pillar"><div class="ptitle">Quality</div><div class="pbody">Only trusted, performance-proven brands. No rebranded imports.</div></div>
-      <div class="pillar"><div class="ptitle">Compliance</div><div class="pbody">All sales fully verified and compliant. We do this right.</div></div>
-      <div class="pillar"><div class="ptitle">Value</div><div class="pbody">Competitive pricing on bulk orders, cases, and training ammo.</div></div>
-      <div class="pillar"><div class="ptitle">Service</div><div class="pbody">Real people. Real answers. Nebraska-based and responsive.</div></div>
+      <div class="pillar"><div class="ptitle">Expertise</div><div class="pbody">Certified gunsmith with hands-on knowledge across pistol, rifle, and shotgun platforms.</div></div>
+      <div class="pillar"><div class="ptitle">Compliance</div><div class="pbody">Full regulatory adherence at the federal, state, and local level — at every stage of growth.</div></div>
+      <div class="pillar"><div class="ptitle">Value</div><div class="pbody">Competitive pricing on bulk orders, cases, and training ammo. No fluff, no filler.</div></div>
+      <div class="pillar"><div class="ptitle">Service</div><div class="pbody">Real people, real answers. Order-on-demand fulfillment with fast turnaround.</div></div>
     </div>
   </div>
 </section>
 
 <div id="brands">
   <div class="bl">Brands We Carry</div>
-  <div class="brow"><span class="bname">Freedom Munitions</span><span class="bname">Federal</span><span class="bname">Hornady</span><span class="bname">PMC</span><span class="bname">SIG Sauer</span><span class="bname">Winchester</span><span class="bname">Norma</span><span class="bname">Aguila</span><span class="bname">Timney</span><span class="bname">Traditions</span></div>
+  <div class="brow">
+    <span class="bname">Federal</span>
+    <span class="bname">Hornady</span>
+    <span class="bname">PMC</span>
+    <span class="bname">SIG Sauer</span>
+    <span class="bname">Winchester</span>
+    <span class="bname">NORMA</span>
+    <span class="bname">Aguila</span>
+    <span class="bname">Timney</span>
+    <span class="bname">Traditions</span>
+    <span class="bname">Pedersoli</span>
+    <span class="bname">Investarm</span>
+    <span class="bname">American Eagle</span>
+  </div>
 </div>
 
 <section id="contact">
   <div>
     <div class="sec-label">Get in Touch</div>
     <h2>Questions?<br>Let's Talk.</h2>
-    <p class="cbody">Whether you're looking for bulk pricing, a specific caliber, or want to know what's in stock — reach out. We respond fast.</p>
+    <p class="cbody">Whether you're looking for bulk ammo pricing, a specific caliber, gunsmithing work, or want to know what's in stock — reach out. We respond fast.</p>
     <div class="cdet"><div class="cdet-icon">✦</div><div><div class="cdet-lbl">Business</div><div class="cdet-val">Eloah Tactical LLC</div></div></div>
-    <div class="cdet"><div class="cdet-icon">◎</div><div><div class="cdet-lbl">Location</div><div class="cdet-val">Henderson, Nebraska</div></div></div>
+    <div class="cdet"><div class="cdet-icon">◎</div><div><div class="cdet-lbl">Location</div><div class="cdet-val">Nebraska — Lincoln Metro Corridor</div></div></div>
     <div class="cdet"><div class="cdet-icon">@</div><div><div class="cdet-lbl">Email</div><div class="cdet-val">office@eloahtactical.com</div></div></div>
     <div class="cdet"><div class="cdet-icon">→</div><div><div class="cdet-lbl">Marketplace</div><div class="cdet-val">GunBroker — Eloah Tactical</div></div></div>
   </div>
   <div>
     <div class="fr"><input type="text" placeholder="Your Name" /></div>
     <div class="fr"><input type="email" placeholder="Email Address" /></div>
-    <div class="fr"><select><option value="" disabled selected>Subject</option><option>Bulk / Case Pricing</option><option>Product Availability</option><option>Order Status</option><option>General Inquiry</option></select></div>
+    <div class="fr">
+      <select>
+        <option value="" disabled selected>Subject</option>
+        <option>Bulk / Case Pricing</option>
+        <option>Product Availability</option>
+        <option>Gunsmithing Service Inquiry</option>
+        <option>Muzzleloader Firearms</option>
+        <option>AR-15 Parts Inquiry</option>
+        <option>FFL Transfer — Notify Me</option>
+        <option>Order Status</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
     <div class="fr"><textarea placeholder="Your message..."></textarea></div>
     <button class="fsub">Send Message</button>
   </div>
@@ -354,35 +488,47 @@
 <footer>
   <div class="fi">
     <div class="flogo">ELOAH <span>TACTICAL</span></div>
-    <ul class="flinks"><li><a href="#categories">Products</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank">GunBroker</a></li></ul>
+    <ul class="flinks">
+      <li><a href="#categories">Products</a></li>
+      <li><a href="#gunsmithing">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.gunbroker.com/seller/eloahtactical" target="_blank">GunBroker</a></li>
+    </ul>
   </div>
   <div class="fcopy">© 2026 Eloah Tactical LLC — All Rights Reserved · eloahtactical.com</div>
-  <div class="fdisc">All firearms and ammunition sales are conducted through licensed channels in full compliance with federal, state, and local laws. Eloah Tactical LLC does not ship firearms directly. All applicable background checks and transfer requirements apply.</div>
+  <div class="fdisc">All firearms and ammunition sales are conducted through licensed channels in full compliance with federal, state, and local laws. Eloah Tactical LLC does not ship firearms directly. All applicable background checks and transfer requirements apply. Muzzleloader firearms are sold in compliance with ATF regulations. Gunsmithing services provided by a certified gunsmith.</div>
 </footer>
 
 <script>
   const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), {threshold:0.1});
   document.querySelectorAll('.fi-in').forEach((el,i) => { el.style.transitionDelay=(i%3)*0.1+'s'; obs.observe(el); });
+
   const catInfo = {
-    'all':      { title: 'All 61 Products',         sub: '61 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 10 trusted brands.' },
-    'handgun':  { title: 'Handgun Ammunition',       sub: '30 SKUs — 9mm, .45 ACP, .38 Special, .380 ACP. FMJ, JHP, and defensive loads from 8 trusted brands.' },
-    'rifle':    { title: 'Rifle Ammunition',          sub: '20 SKUs — 5.56 NATO, .223 Rem, 6.5 PRC, .300 Blackout, 7.62x39. Training, hunting, and precision loads.' },
-    'rimfire':  { title: 'Rimfire Ammunition',        sub: '2 SKUs — Federal Gold .22 LR subsonic and NORMA TAC-22 500 round bulk target load.' },
-    'shotshell':{ title: 'Shotshell Ammunition',      sub: '3 SKUs — Aguila 12ga bulk case, Winchester AA 28ga and .410 bore target loads.' },
-    'muzzle':   { title: 'Muzzleloader',              sub: '5 SKUs — Traditions Kentucky Rifle & Pistol kits, Hornady round balls, starter kit, and supplies.' },
-    'parts':    { title: 'Parts & Accessories',       sub: '3 SKUs — Timney Savage AccuTrigger, Traditions Liquid Blue, and expanding parts selection.' },
+    'all':       { title: 'All 58 Products',          sub: '58 SKUs across handgun, rifle, rimfire, shotshell, muzzleloader, and parts — from 12 trusted brands.' },
+    'handgun':   { title: 'Handgun Ammunition',        sub: '15 SKUs — 9mm, .45 ACP, .38 Special. FMJ, JHP, and defensive loads from Aguila, American Eagle, Federal, Hornady, PMC, SIG Sauer, and Winchester.' },
+    'rifle':     { title: 'Rifle Ammunition',           sub: '15 SKUs — 5.56 NATO, .223 Rem, 6.5 PRC, .300 Blackout, 7.62x39. Training, hunting, and precision loads from NORMA, PMC Bronze, PMC X-TAC, and SIG Sauer.' },
+    'rimfire':   { title: 'Rimfire Ammunition',         sub: '2 SKUs — Federal Gold .22 LR subsonic and NORMA TAC-22 500rd bulk target load.' },
+    'shotshell': { title: 'Shotshell Ammunition',       sub: '3 SKUs — Aguila 12ga bulk case, Winchester AA 28ga and .410 bore target loads.' },
+    'muzzle':    { title: 'Muzzleloader',               sub: '13 SKUs — Traditional percussion rifles and pistol kits, Hornady projectiles, and starter supplies. Traditions, Pedersoli, Investarm, and Hornady.' },
+    'parts':     { title: 'Parts & Accessories',        sub: '7 SKUs — AR-15 upper assemblies (budget through tactical), Timney Savage AccuTrigger, and Traditions Liquid Blue cold bluing solution.' },
   };
 
   function fp(cat, btn) {
-    document.querySelectorAll('.pc').forEach(c => { c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'; });
-    if(btn){ document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+    document.querySelectorAll('.pc').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+    });
+    if(btn){ document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
     const info = catInfo[cat] || catInfo['all'];
     document.getElementById('cat-title').textContent = info.title;
     document.getElementById('cat-sub').textContent = info.sub;
-    document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('products').scrollIntoView({behavior:'smooth', block:'start'});
   }
+
   const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => { nav.style.borderBottomColor = window.scrollY>60?'rgba(200,168,75,0.15)':'var(--border)'; });
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 60 ? 'rgba(200,168,75,0.15)' : 'var(--border)';
+  });
 </script>
 
 </body>
