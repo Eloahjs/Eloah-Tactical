@@ -74,6 +74,7 @@
     .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px}
     .pgrid::after{content:'';grid-column:1/-1}
     .pc{background:var(--panel);border:1px solid var(--border);padding:22px;position:relative;transition:border-color 0.2s;display:flex;flex-direction:column}
+    .pc.hidden{display:none!important}
     .pc:hover{border-color:var(--muted)}
     .pc-brand{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:5px}
     .pc-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:10px}
@@ -81,7 +82,8 @@
     .pc-qty{width:100%;background:var(--black);border:1px solid var(--border);color:var(--light);font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:1px;padding:7px 10px;outline:none;cursor:pointer;transition:border-color 0.2s;appearance:none;margin-bottom:14px;flex-grow:1}
     .pc-qty:focus{border-color:var(--gold)}
     .pc-qty option{background:var(--panel)}
-    .pc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:auto}
+    .pc-foot{display:flex;align-items:center;justify-content:flex-end;padding-top:14px;border-top:1px solid var(--border);margin-top:auto;gap:12px}
+    .pc-foot .pc-price{margin-right:auto}
     .pc-price{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--gold)}
     .pc-price.tbd{font-size:11px;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;color:var(--muted);font-weight:400}
     .pc-req{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:transparent;padding:6px 12px;text-decoration:none;transition:all 0.2s;border:1px solid var(--gold);cursor:pointer}
@@ -284,7 +286,7 @@
   <select class="pc-qty" data-product="Aguila 9mm 115gr FMJ" data-base-sku="AG-9-115-FMJ">
     <option value="50|AG-9-115-FMJ-50">50 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -295,7 +297,7 @@
     <option value="50|FEDAE-9-115-FMJ-50">50 Round Box</option>
     <option value="100|FEDAE-9-115-FMJ-100">100 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -305,7 +307,7 @@
   <select class="pc-qty" data-product="Federal Punch 9mm 124gr JHP" data-base-sku="FEDP-9-124-JHP">
     <option value="20|FEDP-9-124-JHP-20">20 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -315,7 +317,7 @@
   <select class="pc-qty" data-product="Federal Punch .45 ACP 230gr JHP" data-base-sku="FEDP-45-230-JHP">
     <option value="20|FEDP-45-230-JHP-50">20 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -325,7 +327,7 @@
   <select class="pc-qty" data-product="Hornady Critical Defense 9mm 115gr FTX" data-base-sku="HCD-9-115-FTX">
     <option value="25|HCD-9-115-FTX-25">25 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -335,7 +337,7 @@
   <select class="pc-qty" data-product="Hornady Critical Defense .38 Special 110gr FTX" data-base-sku="HCD-38-110-FTX">
     <option value="25|HCD-38-110-FTX-25">25 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -345,7 +347,7 @@
   <select class="pc-qty" data-product="Hornady Critical Defense .380 ACP 90gr FTX" data-base-sku="HCD-380ACP-90-FTX">
     <option value="25|HCD-380ACP-90-FTX-25">25 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -356,7 +358,7 @@
     <option value="50|PMC-9-115-FMJ-50">50 Round Box</option>
     <option value="1000|PMC-9-115-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -366,7 +368,7 @@
   <select class="pc-qty" data-product="PMC Bronze 9mm 115gr JHP" data-base-sku="PMC-9-115-JHP">
     <option value="20|PMC-9-115-JHP-20">20 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -377,7 +379,7 @@
     <option value="50|PMC-45ACP-230-FMJ-50">50 Round Box</option>
     <option value="1000|PMC-45ACP-230-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="handgun">
@@ -387,7 +389,7 @@
   <select class="pc-qty" data-product="SIG Sauer Elite V-Crown 9mm 115gr JHP" data-base-sku="SIGS-9-115-JHP">
     <option value="20|SIGS-9-115-JHP-20">20 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- Winchester 9mm intentionally single card - only 50rd box in spreadsheet -->
@@ -399,7 +401,7 @@
     <option value="50|WIN-9MM-115-FMJ-50">50 Round Box</option>
     <option value="1000|WIN-9MM-115-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- ═══ RIFLE — 11 cards ═══ -->
@@ -410,7 +412,7 @@
   <select class="pc-qty" data-product="NORMA 6.5 PRC Golden Target 143gr BTHP" data-base-sku="NOR-6.5PRC-143-BTHP">
     <option value="20|NOR-6.5PRC-143-BTHP-20">20 Round Box — Precision Match</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -420,7 +422,7 @@
   <select class="pc-qty" data-product="NORMA 5.56 NATO 55gr FMJ" data-base-sku="NOR-556-FMJ">
     <option value="20|NOR-556-FMJ-20">20 Round Box — Range &amp; Training</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -430,7 +432,7 @@
   <select class="pc-qty" data-product="NORMA .300 Blackout 147gr FMJ" data-base-sku="NOR-300BLK-147-FMJ">
     <option value="20|NOR-300BLK-147-FMJ-20">20 Round Box — Range &amp; Training</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -440,7 +442,7 @@
   <select class="pc-qty" data-product="NORMA 7.62x39 123gr FMJ" data-base-sku="NOR-76239-123-FMJ">
     <option value="20|NOR-76239-123-FMJ-20">20 Round Box — Range &amp; Training</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -450,7 +452,7 @@
   <select class="pc-qty" data-product="NORMA Whitetail 6.5 PRC 140gr PSP" data-base-sku="NOR-6.5PRC-140-PSP">
     <option value="20|NOR-6.5PRC-140-PSP-20">20 Round Box — Hunting</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -461,7 +463,7 @@
     <option value="20|PMC-223-55-FMJ-20">20 Round Box</option>
     <option value="1000|PMC-223-55-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -472,7 +474,7 @@
     <option value="20|PMC-76239-123-FMJ-20">20 Round Box</option>
     <option value="500|PMC-76239-123-FMJ-500C">500 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -482,7 +484,7 @@
   <select class="pc-qty" data-product="PMC Bronze 5.56 NATO 55gr FMJ-BT" data-base-sku="PMC-556-55-FMJ">
     <option value="840|PMC-556-55-FMJ-840AC">840 Round Ammo Can</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -493,7 +495,7 @@
     <option value="20|PMCX-556-55-FMJ-20">20 Round Box</option>
     <option value="1000|PMCX-556-55-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -504,7 +506,7 @@
     <option value="20|PMCX-556-62-FMJ-20">20 Round Box</option>
     <option value="1000|PMCX-556-62-FMJ-1000C">1,000 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rifle">
@@ -514,7 +516,7 @@
   <select class="pc-qty" data-product="SIG Sauer .300 Blackout Elite Ball FMJ 125gr" data-base-sku="SIGS-300BLK-125-FMJ">
     <option value="20|SIGS-300BLK-125-FMJ-20">20 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- ═══ RIMFIRE — 2 cards ═══ -->
@@ -525,7 +527,7 @@
   <select class="pc-qty" data-product="Federal Gold .22 LR 40gr LRN Subsonic" data-base-sku="FEDG-22LR-LRN-SUB">
     <option value="50|FEDG-22LR-LRN-SUB-50">50 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="rimfire">
@@ -535,7 +537,7 @@
   <select class="pc-qty" data-product="NORMA TAC-22 .22 LR 40gr LRN Target" data-base-sku="NOR-22LR-40">
     <option value="500|NOR-22LR-40-500">500 Round Box — High Performance</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- ═══ SHOTSHELL — 3 cards ═══ -->
@@ -546,7 +548,7 @@
   <select class="pc-qty" data-product="Aguila 12ga #7.5 Shot 2.75in" data-base-sku="AGSH-12-275-7.5">
     <option value="250|AGSH-12-275-7.5-250C">250 Round Case</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="shotshell">
@@ -556,7 +558,7 @@
   <select class="pc-qty" data-product="Winchester AA 28ga #8 Shot 2.75in" data-base-sku="WINSH-28-275-8">
     <option value="25|WINSH-28-275-8-25-WAA">25 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="shotshell">
@@ -566,7 +568,7 @@
   <select class="pc-qty" data-product="Winchester AA Super Sport .410 Bore #8 Shot" data-base-sku="WINSH-410-250-8">
     <option value="25|WINSH-410-250-8-25-WAAS">25 Round Box</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- ═══ MUZZLELOADER — 13 cards ═══ -->
@@ -577,7 +579,7 @@
   <select class="pc-qty" data-product="Hornady .50 Cal Round Balls" data-base-sku="6515423">
     <option value="100|6515423">100 Count</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -587,7 +589,7 @@
   <select class="pc-qty" data-product="Traditional Muzzleloader Basics Starter Kit .50 Cal" data-base-sku="ML-STARTER-KIT-50CAL">
     <option value="1|ML-STARTER-KIT-50CAL">Complete .50 Cal Kit</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -597,7 +599,7 @@
   <select class="pc-qty" data-product="Traditions Kentucky Pistol Kit .50 Cal Percussion" data-base-sku="TRAD-50-PISTOL-KIT">
     <option value="1|TRAD-50-PISTOL-KIT">.50 Cal Percussion — Complete Build Kit</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -607,7 +609,7 @@
   <select class="pc-qty" data-product="Traditions Kentucky Rifle Kit .50 Cal Percussion" data-base-sku="TRAD-50-RIFLE-KIT">
     <option value="1|TRAD-50-RIFLE-KIT">.50 Cal Percussion — Complete Build Kit</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -617,7 +619,7 @@
   <select class="pc-qty" data-product="Traditions Deerhunter Rifle .50 Cal Percussion" data-base-sku="TRAD-RIFLE-50CAL-DEERHUNTER">
     <option value="1|TRAD-RIFLE-50CAL-DEERHUNTER">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -627,7 +629,7 @@
   <select class="pc-qty" data-product="Traditions Kentucky Rifle .50 Cal Percussion" data-base-sku="TRAD-RIFLE-50CAL-KENTUCKY">
     <option value="1|TRAD-RIFLE-50CAL-KENTUCKY">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -637,7 +639,7 @@
   <select class="pc-qty" data-product="Traditions Deluxe Kentucky Rifle .50 Cal Percussion" data-base-sku="TRAD-RIFLE-50CAL-DELUXE-KENTUCKY">
     <option value="1|TRAD-RIFLE-50CAL-DELUXE-KENTUCKY">.50 Cal Percussion — Premium Finish</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -647,7 +649,7 @@
   <select class="pc-qty" data-product="Traditions Mountain Rifle .50 Cal Percussion" data-base-sku="TRAD-RIFLE-50CAL-MOUNTAIN-R9350801">
     <option value="1|TRAD-RIFLE-50CAL-MOUNTAIN-R9350801">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -657,7 +659,7 @@
   <select class="pc-qty" data-product="Traditions Pennsylvania Carbine .50 Cal Percussion" data-base-sku="TRAD-RIFLE-50CAL-PENNSYLVANIA-CARBINE">
     <option value="1|TRAD-RIFLE-50CAL-PENNSYLVANIA-CARBINE">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -667,7 +669,7 @@
   <select class="pc-qty" data-product="Investarm Deerstalker Rifle .50 Cal Percussion" data-base-sku="INVEST-RIFLE-50CAL-DEERSTALKER">
     <option value="1|INVEST-RIFLE-50CAL-DEERSTALKER">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -677,7 +679,7 @@
   <select class="pc-qty" data-product="Investarm Hawken Rifle .50 Cal Percussion" data-base-sku="INVEST-RIFLE-50CAL-HAWKEN">
     <option value="1|INVEST-RIFLE-50CAL-HAWKEN">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -687,7 +689,7 @@
   <select class="pc-qty" data-product="Pedersoli Pennsylvania Rifle .50 Cal Percussion" data-base-sku="PED-RIFLE-50CAL-PENNSYLVANIA">
     <option value="1|PED-RIFLE-50CAL-PENNSYLVANIA">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="muzzle">
@@ -697,7 +699,7 @@
   <select class="pc-qty" data-product="Pedersoli Missouri River Hawken .50 Cal Percussion" data-base-sku="PED-RIFLE-50CAL-MISSOURI-RIVER">
     <option value="1|PED-RIFLE-50CAL-MISSOURI-RIVER">.50 Cal Percussion</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <!-- ═══ PARTS — 7 cards ═══ -->
@@ -708,7 +710,7 @@
   <select class="pc-qty" data-product="Timney Savage AccuTrigger Black Drop-In" data-base-sku="TIM-SAV-ACC-BLK">
     <option value="1|TIM-SAV-ACC-BLK">Drop-In Replacement — No Gunsmithing Required</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="parts">
@@ -729,7 +731,7 @@
     <option value="1|MGW-PARTS-AR15-556-16-BUDGET-UPPER">Budget — Entry Level</option>
     <option value="1|MGW-PARTS-AR15-556-16-MID-UPPER">Mid — Mid Tier</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 
 <div class="pc" data-cat="parts">
@@ -740,7 +742,7 @@
     <option value="1|FN-PARTS-AR15-556-16-CARBINE-UPPER">Carbine — Carbine Grade</option>
     <option value="1|FN-PARTS-AR15-556-16-TAC3-UPPER">TAC3 — Tactical Grade</option>
   </select>
-  <div class="pc-foot"><div class="pc-price tbd">Price on Request</div><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
+  <div class="pc-foot"><button class="pc-req" onclick="sendRequest(this)">Request Pricing →</button></div>
 </div>
 ```
 
@@ -865,9 +867,7 @@
   function fp(cat, btn) {
     document.querySelectorAll('.pc').forEach(c => {
       const show = cat === 'all' || c.dataset.cat === cat;
-      c.style.display = show ? 'flex' : 'none';
-      c.style.visibility = show ? 'visible' : 'hidden';
-      c.style.position = show ? '' : 'absolute';
+      c.classList.toggle('hidden', !show);
     });
     if(btn){ document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }
     const info = catInfo[cat] || catInfo['all'];
