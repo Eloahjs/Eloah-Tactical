@@ -1,107 +1,1660 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Eloah Tactical — Back Soon</title>
+<title>Eloah Tactical — Ammunition, Parts &amp; Accessories</title>
+<meta name="description" content="Eloah Tactical — Nebraska-based, order-on-demand ammunition, uppers, parts, and accessories. Trusted brands, manual fulfillment, secure invoicing." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+a { color: inherit; text-decoration: none; -webkit-text-fill-color: inherit; }
+:root{
+  --black:#0a0b0d;
+  --dark:#111318;
+  --panel:#161a21;
+  --border:#252b36;
+  --muted:#3a4252;
+  --silver:#8a93a3;
+  --light:#c8cfd8;
+  --white:#eef0f3;
+  --gold:#c8a84b;
+  --gold-dim:#8a7030;
+  --red:#c0392b;
+  --accent:#4a7fb5;
+  --green:#64b478;
+  --orange:#c8834b;
+  --purple:#b07dd0;
+}
+html { scroll-behavior: smooth; }
 body {
-  background: #0a0b0d;
-  color: #c8cfd8;
+  background: var(--black);
+  color: var(--light);
   font-family: 'Barlow', sans-serif;
   font-weight: 300;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 48px 24px;
+  overflow-x: hidden;
 }
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
-  letter-spacing: 8px;
-  color: #eef0f3;
-  margin-bottom: 4px;
+nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 72px;
+  background: rgba(10,11,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
-.logo-cross {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  position: relative;
+.nav-logo{ display:flex; flex-direction:column; gap:1px; }
+.nav-logo-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:26px;
+  letter-spacing:6px;
+  color:var(--white);
+  line-height:1;
+  display:flex;
+  align-items:center;
+  gap:2px;
 }
-.logo-cross::before,
-.logo-cross::after {
-  content: '';
-  position: absolute;
-  background: #c8a84b;
+.nav-logo-cross{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  position:relative;
 }
-.logo-cross::before { width: 1px; height: 100%; }
-.logo-cross::after { width: 100%; height: 1px; }
-.logo-ring {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #c8a84b;
-  border-radius: 50%;
+.nav-logo-cross::before,
+.nav-logo-cross::after{
+  content:'';
+  position:absolute;
+  background:var(--gold);
 }
-.logo-sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  letter-spacing: 6px;
-  color: #c8a84b;
-  text-transform: uppercase;
-  margin-bottom: 64px;
+.nav-logo-cross::before{ width:1px; height:100%; }
+.nav-logo-cross::after{ width:100%; height:1px; }
+.nav-logo-ring{
+  position:absolute;
+  width:14px;
+  height:14px;
+  border:1px solid var(--gold);
+  border-radius:50%;
 }
-.divider {
-  width: 48px;
-  height: 1px;
-  background: #c8a84b;
-  margin: 0 auto 32px;
+.nav-logo-sub{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;
+  letter-spacing:5px;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  width:100%;
 }
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
-  letter-spacing: 2px;
-  color: #eef0f3;
-  line-height: 1;
-  margin-bottom: 24px;
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:36px;
+  list-style:none;
 }
-h1 span { color: #c8a84b; }
-p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #8a93a3;
-  max-width: 480px;
-  margin-bottom: 16px;
+.nav-links a{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--silver);
+  text-decoration:none;
+  transition:color .2s;
 }
-.contact {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #3a4252;
-  margin-top: 64px;
+.nav-links a:hover{ color:var(--gold); }
+.nav-cta{
+  color:#0a0b0d !important;
+  -webkit-text-fill-color:#0a0b0d !important;
+  background:var(--gold);
+  padding:10px 22px;
+}
+.nav-cta:hover{ background:#e0bc5a !important; }
+section{ padding:100px 48px; }
+#hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding:120px 48px 80px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 70% 50%, rgba(74,127,181,0.06) 0%, transparent 70%),
+    linear-gradient(160deg,#0a0b0d 0%,#111318 100%);
+}
+.hero-xhair{
+  position:absolute;
+  right:8%;
+  top:50%;
+  transform:translateY(-50%);
+  width:480px;
+  height:480px;
+  opacity:0.06;
+}
+.hero-xhair svg{ width:100%; height:100%; }
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:680px;
+}
+.eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.eyebrow::before{
+  content:'';
+  display:block;
+  width:32px;
+  height:1px;
+  background:var(--gold);
+}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,9vw,120px);
+  line-height:.92;
+  letter-spacing:2px;
+  color:var(--white);
+  margin-bottom:32px;
+}
+h1 span{
+  color:var(--gold);
+  display:block;
+}
+.hero-desc{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--silver);
+  max-width:520px;
+  margin-bottom:48px;
+}
+.hero-actions{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.btn-p,
+.btn-s{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  text-decoration:none;
+  display:inline-block;
+  transition:all .2s;
+}
+.btn-p{
+  font-weight:700;
+  background:var(--gold);
+  color:#0a0b0d;
+  -webkit-text-fill-color:#0a0b0d;
+  padding:16px 36px;
+}
+.btn-p:hover{
+  background:#e0bc5a;
+  transform:translateY(-1px);
+}
+.btn-s{
+  font-weight:600;
+  border:1px solid var(--border);
+  color:var(--light);
+  padding:16px 36px;
+}
+.btn-s:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+.hero-stats{
+  position:absolute;
+  bottom:60px;
+  right:48px;
+  display:flex;
+  gap:48px;
+  z-index:2;
+}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:36px;
+  color:var(--gold);
+  letter-spacing:2px;
+  line-height:1;
+}
+.stat-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-top:4px;
+}
+.ticker{
+  background:#c8a84b;
+  padding:12px 0;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.ticker-inner{
+  display:inline-block;
+  animation:tick 36s linear infinite;
+}
+.ti{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#0a0b0d;
+  margin-right:60px;
+}
+.td{
+  color:rgba(0,0,0,.3);
+  margin-right:60px;
+}
+@keyframes tick{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.sec-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.sec-label::before{
+  content:'';
+  display:block;
+  width:24px;
+  height:1px;
+  background:var(--gold);
+}
+h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,5vw,64px);
+  letter-spacing:2px;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:16px;
+}
+.sec-sub{
+  font-size:15px;
+  color:var(--silver);
+  line-height:1.7;
+  max-width:620px;
+  margin-bottom:48px;
+}
+#categories{ background:var(--dark); }
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+  margin-top:48px;
+}
+.cat-card{
+  background:var(--panel);
+  padding:40px 32px;
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:border-color .3s;
+  text-decoration:none;
+  display:block;
+}
+.cat-card::before{
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:100%;
+  height:2px;
+  background:var(--gold);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s;
+}
+.cat-card:hover{ border-color:var(--muted); }
+.cat-card:hover::before{ transform:scaleX(1); }
+.cat-icon{
+  width:48px;
+  height:48px;
+  margin-bottom:24px;
+  opacity:.7;
+}
+.cat-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;
+  letter-spacing:2px;
+  color:var(--white);
+  margin-bottom:8px;
+}
+.cat-desc{
+  font-size:13px;
+  color:var(--silver);
+  line-height:1.6;
+}
+.cat-count{
+  position:absolute;
+  top:24px;
+  right:24px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--gold-dim);
+  text-transform:uppercase;
+}
+#products{
+  background:var(--black);
+  padding:48px 48px 40px;
+}
+.order-note{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-left:2px solid var(--gold-dim);
+  padding:16px 24px;
+  margin-bottom:28px;
+  font-size:13px;
+  color:var(--silver);
+  line-height:1.65;
+}
+.order-note strong{
+  color:var(--light);
+  font-weight:500;
+}
+.filter-bar{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.fbtn{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  border:1px solid var(--border);
+  color:var(--silver);
+  padding:8px 18px;
+  background:transparent;
+  cursor:pointer;
+  transition:all .2s;
+}
+.fbtn:hover,
+.fbtn.active{
+  border-color:var(--gold);
+  color:var(--gold);
+  background:rgba(200,168,75,0.05);
+}
+.pgrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:2px;
+}
+.pc{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:22px;
+  position:relative;
+  transition:border-color .2s;
+  display:flex;
+  flex-direction:column;
+  min-height:220px;
+}
+.pc.hidden{ display:none !important; }
+.pc:hover{ border-color:var(--muted); }
+.pc-brand{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--gold-dim);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.pc-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;
+  font-weight:600;
+  color:var(--white);
+  line-height:1.3;
+  margin-bottom:10px;
+}
+.pc-img{
+  width:100%;
+  height:160px;
+  object-fit:contain;
+  background:var(--black);
+  border:1px solid var(--border);
+  margin-bottom:14px;
+  display:block;
+}
+.pc-var{
+  width:100%;
+  background:var(--black);
+  border:1px solid var(--border);
+  color:var(--light);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;
+  letter-spacing:1px;
+  padding:10px 12px;
+  margin-bottom:14px;
+  line-height:1.3;
+  flex-grow:1;
+}
+.pc-foot{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+  margin-top:auto;
+}
+.pc-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  letter-spacing:1px;
+  color:var(--gold);
+  margin-right:auto;
+}
+.pc-price.tbd{
+  font-size:11px;
+  font-family:'Barlow Condensed',sans-serif;
+  letter-spacing:2px;
+  color:var(--muted);
+  font-weight:400;
+}
+.pc-req{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#c8a84b !important;
+  -webkit-text-fill-color:#c8a84b !important;
+  background:transparent;
+  padding:8px 14px;
+  text-decoration:none !important;
+  transition:all .2s;
+  border:1px solid var(--gold);
+  white-space:nowrap;
+  cursor:pointer;
+  display:inline-block;
+}
+.pc-req:hover{
+  background:var(--gold);
+  color:#0a0b0d !important;
+  -webkit-text-fill-color:#0a0b0d !important;
+}
+.pt{
+  position:absolute;
+  top:0;
+  right:0;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:4px 10px;
+}
+.th{ background:rgba(192,57,43,0.15); color:#e74c3c; }
+.tr{ background:rgba(74,127,181,0.15); color:var(--accent); }
+.trf{ background:rgba(200,168,75,0.12); color:var(--gold); }
+.tsh{ background:rgba(180,120,50,0.15); color:var(--orange); }
+.tpa{ background:rgba(138,147,163,0.15); color:var(--silver); }
+.tar{ background:rgba(160,100,200,0.15); color:var(--purple); }
+.top{ background:rgba(74,127,181,0.15); color:var(--accent); }
+#about{
+  background:var(--black);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  align-items:center;
+}
+.abody{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--silver);
+  margin-bottom:32px;
+}
+.apillars{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:40px;
+}
+.pillar{
+  padding:20px;
+  border:1px solid var(--border);
+  border-left:2px solid var(--gold-dim);
+}
+.ptitle{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:6px;
+}
+.pbody{
+  font-size:13px;
+  color:var(--silver);
+  line-height:1.5;
+}
+#brands{
+  background:var(--dark);
+  text-align:center;
+  padding:60px 48px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.bl{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  letter-spacing:6px;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:40px;
+}
+.brow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 32px;
+  justify-content:center;
+  align-items:center;
+}
+.bname{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;
+  letter-spacing:3px;
+  color:var(--muted);
+  transition:color .2s;
+  cursor:default;
+}
+.bname:hover{ color:var(--gold); }
+#contact{
+  background:var(--dark);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.cbody{
+  font-size:15px;
+  color:var(--silver);
+  line-height:1.8;
+  margin-bottom:40px;
+}
+.cdet{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:24px;
+}
+.cdet-icon{
+  width:36px;
+  height:36px;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  color:var(--gold);
+  font-size:14px;
+}
+.cdet-lbl{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.cdet-val{
+  font-size:15px;
+  color:var(--light);
+}
+.fr{ margin-bottom:16px; }
+.fr input,
+.fr textarea,
+.fr select{
+  width:100%;
+  background:var(--panel);
+  border:1px solid var(--border);
+  color:var(--light);
+  font-family:'Barlow',sans-serif;
+  font-size:14px;
+  padding:14px 18px;
+  outline:none;
+  transition:border-color .2s;
+  appearance:none;
+}
+.fr input:focus,
+.fr textarea:focus,
+.fr select:focus{ border-color:var(--gold); }
+.fr textarea{ resize:vertical; min-height:120px; }
+.fr input::placeholder,
+.fr textarea::placeholder{ color:var(--muted); }
+.fr select option{ background:var(--panel); }
+.fsub{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  background:var(--gold);
+  color:#0a0b0d;
+  border:none;
+  padding:16px 40px;
+  cursor:pointer;
+  transition:background .2s;
+  width:100%;
+}
+.fsub:hover{ background:#e0bc5a; }
+footer{
+  background:var(--black);
+  border-top:1px solid var(--border);
+  padding:48px;
+}
+.fi{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:24px;
+}
+.flogo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;
+  letter-spacing:6px;
+  color:var(--white);
+}
+.flogo span{ color:var(--gold); }
+.flinks{
+  display:flex;
+  gap:32px;
+  list-style:none;
+}
+.flinks a{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s;
+}
+.flinks a:hover{ color:var(--gold); }
+.fcopy{
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.fdisc{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.6;
+  max-width:700px;
+  margin:16px auto 0;
+  text-align:center;
+  opacity:.7;
+}
+.fi-in{
+  opacity:1;
+  transform:none;
+  transition:opacity .7s ease, transform .7s ease;
+}
+@media (max-width:900px){
+  nav{ padding:0 24px; }
+  .nav-links{ display:none; }
+  section{ padding:64px 24px; }
+  #hero{ padding:100px 24px 64px; }
+  #products{ padding:36px 24px 32px; }
+  .hero-stats, .hero-xhair{ display:none; }
+  .cat-grid{ grid-template-columns:1fr 1fr; }
+  .pgrid{ grid-template-columns:1fr 1fr; }
+  #about{ grid-template-columns:1fr; gap:48px; }
+  .about-visual{ display:none; }
+  #contact{ grid-template-columns:1fr; }
+  footer{ padding:32px 24px; }
+  .fi{ flex-direction:column; align-items:flex-start; }
+}
+@media (max-width:500px){
+  .cat-grid{ grid-template-columns:1fr; }
+  .pgrid{ grid-template-columns:1fr; }
 }
 </style>
 </head>
 <body>
-  <div class="logo">EL<div class="logo-cross"><div class="logo-ring"></div></div>AH</div>
-  <div class="logo-sub">Tactical</div>
-  <div class="divider"></div>
-  <h1>Back <span>Shortly</span></h1>
-  <p>We're temporarily offline for updates. We'll be back up soon — thank you for your patience.</p>
-  <p>For urgent inquiries contact us at office@eloahtactical.com or 402-937-3881.</p>
-  <div class="contact">eloahtactical.com</div>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-text">EL<div class="nav-logo-cross"><div class="nav-logo-ring"></div></div>AH</div>
+    <div class="nav-logo-sub">Tactical</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#categories">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-xhair">
+    <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.5" stroke="white" stroke-width="1">
+        <line x1="240" y1="240" x2="240" y2="40"/><line x1="240" y1="240" x2="310" y2="55"/><line x1="240" y1="240" x2="370" y2="100"/><line x1="240" y1="240" x2="410" y2="160"/><line x1="240" y1="240" x2="435" y2="230"/><line x1="240" y1="240" x2="430" y2="300"/><line x1="240" y1="240" x2="400" y2="365"/><line x1="240" y1="240" x2="340" y2="415"/><line x1="240" y1="240" x2="270" y2="440"/><line x1="240" y1="240" x2="200" y2="440"/><line x1="240" y1="240" x2="140" y2="415"/><line x1="240" y1="240" x2="80" y2="365"/><line x1="240" y1="240" x2="50" y2="300"/><line x1="240" y1="240" x2="45" y2="230"/><line x1="240" y1="240" x2="70" y2="160"/><line x1="240" y1="240" x2="110" y2="100"/><line x1="240" y1="240" x2="170" y2="55"/>
+      </g>
+      <circle cx="240" cy="240" r="160" stroke="white" stroke-width="0.5" opacity="0.3"/>
+      <ellipse cx="240" cy="240" rx="52" ry="60" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+      <ellipse cx="240" cy="240" rx="26" ry="30" fill="none" stroke="white" stroke-width="1" opacity="0.6"/>
+      <line x1="240" y1="160" x2="240" y2="208" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
+      <line x1="240" y1="272" x2="240" y2="320" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
+      <line x1="160" y1="240" x2="212" y2="240" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
+      <line x1="268" y1="240" x2="320" y2="240" stroke="#c8a84b" stroke-width="2" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="hero-content fi-in">
+    <div class="eyebrow">Nebraska · Est. 2024 · Order-on-Demand</div>
+    <h1>Precision<span>Ammunition</span>Built to Perform</h1>
+    <p class="hero-desc">Eloah Tactical is a Nebraska-based, owner-operated business offering ammunition, uppers, parts, and accessories — available by request with manual order confirmation, invoicing, and secure payment.</p>
+    <div class="hero-actions">
+      <a href="#categories" class="btn-p">Browse Catalog</a>
+      <a href="#contact" class="btn-s">Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">64</div><div class="stat-label">Product Lines</div></div>
+    <div><div class="stat-num">12+</div><div class="stat-label">Top Brands</div></div>
+    <div><div class="stat-num">NE</div><div class="stat-label">Based &amp; Bonded</div></div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ti">Federal</span><span class="td">◆</span>
+    <span class="ti">Hornady</span><span class="td">◆</span>
+    <span class="ti">PMC</span><span class="td">◆</span>
+    <span class="ti">PMC X-TAC</span><span class="td">◆</span>
+    <span class="ti">SIG Sauer</span><span class="td">◆</span>
+    <span class="ti">Winchester</span><span class="td">◆</span>
+    <span class="ti">NORMA</span><span class="td">◆</span>
+    <span class="ti">Aguila</span><span class="td">◆</span>
+    <span class="ti">AT3 Tactical</span><span class="td">◆</span>
+    <span class="ti">Bear Creek Arsenal</span><span class="td">◆</span>
+    <span class="ti">Breek Arms</span><span class="td">◆</span>
+    <span class="ti">KVP</span><span class="td">◆</span>
+    <span class="ti">Federal</span><span class="td">◆</span>
+    <span class="ti">Hornady</span><span class="td">◆</span>
+    <span class="ti">PMC</span><span class="td">◆</span>
+    <span class="ti">PMC X-TAC</span><span class="td">◆</span>
+    <span class="ti">SIG Sauer</span><span class="td">◆</span>
+    <span class="ti">Winchester</span><span class="td">◆</span>
+    <span class="ti">NORMA</span><span class="td">◆</span>
+    <span class="ti">Aguila</span><span class="td">◆</span>
+    <span class="ti">AT3 Tactical</span><span class="td">◆</span>
+    <span class="ti">Bear Creek Arsenal</span><span class="td">◆</span>
+    <span class="ti">Breek Arms</span><span class="td">◆</span>
+    <span class="ti">KVP</span><span class="td">◆</span>
+  </div>
+</div>
+
+<section id="categories">
+  <div class="sec-label">Browse by Category</div>
+  <h2>What We Carry</h2>
+  <p class="sec-sub">Browse ammunition, uppers, parts, and accessories from trusted brands. Available by request with confirmed pricing and manual fulfillment.</p>
+  <div class="cat-grid">
+    <a href="#products" class="cat-card fi-in" onclick="fp('handgun',this)">
+      <div class="cat-count">9MM</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><rect x="8" y="18" width="28" height="16" rx="2"/><rect x="30" y="22" width="8" height="4" rx="1"/><rect x="14" y="30" width="8" height="8" rx="1"/></svg>
+      <div class="cat-name">Handgun Ammo</div>
+      <div class="cat-desc">9mm FMJ, JHP, and defensive loads from Aguila, American Eagle, Federal, Hornady, PMC, SIG Sauer, and Winchester.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rifle',this)">
+      <div class="cat-count">5.56 · .223 · 6.5 PRC · 7.62X39 · .300 BLK</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2"><rect x="4" y="20" width="36" height="10" rx="1"/><rect x="38" y="21" width="6" height="6" rx="1"/><rect x="12" y="26" width="6" height="8" rx="1"/></svg>
+      <div class="cat-name">Rifle Ammo</div>
+      <div class="cat-desc">Training, hunting, and precision rifle ammunition in 5.56, .223, 6.5 PRC, 7.62x39, and .300 Blackout from NORMA, PMC, PMC X-TAC, and SIG Sauer.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('rimfire',this)">
+      <div class="cat-count">.22 LR</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8a84b" stroke-width="1.2"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="3" fill="#c8a84b"/><line x1="24" y1="8" x2="24" y2="14"/><line x1="24" y1="34" x2="24" y2="40"/><line x1="8" y1="24" x2="14" y2="24"/><line x1="34" y1="24" x2="40" y2="24"/></svg>
+      <div class="cat-name">Rimfire</div>
+      <div class="cat-desc">.22 LR options for plinking, training, and defense from Aguila, Browning, CCI, Federal, NORMA, and Winchester.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('shotshell',this)">
+      <div class="cat-count">12GA</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#c8834b" stroke-width="1.2"><rect x="18" y="8" width="12" height="32" rx="2"/><rect x="20" y="6" width="8" height="4" rx="1"/><line x1="18" y1="24" x2="30" y2="24"/></svg>
+      <div class="cat-name">Shotshell</div>
+      <div class="cat-desc">12 gauge field and target loads from Aguila.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('parts',this)">
+      <div class="cat-count">Uppers · Triggers · Supplies</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#8a93a3" stroke-width="1.2"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="4"/><line x1="24" y1="10" x2="24" y2="16"/><line x1="24" y1="32" x2="24" y2="38"/><line x1="10" y1="24" x2="16" y2="24"/><line x1="32" y1="24" x2="38" y2="24"/></svg>
+      <div class="cat-name">Parts &amp; Accessories</div>
+      <div class="cat-desc">AR-15 uppers and shop supplies from Midwest Gun Works and FN.</div>
+    </a>
+    <a href="#products" class="cat-card fi-in" onclick="fp('optics',this)">
+      <div class="cat-count">Red Dots · Magnifiers</div>
+      <svg class="cat-icon" viewBox="0 0 48 48" fill="none" stroke="#4a7fb5" stroke-width="1.2"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="6"/><line x1="24" y1="4" x2="24" y2="12"/><line x1="24" y1="36" x2="24" y2="44"/><line x1="4" y1="24" x2="12" y2="24"/><line x1="36" y1="24" x2="44" y2="24"/></svg>
+      <div class="cat-name">Optics</div>
+      <div class="cat-desc">Red dot sights, magnifiers, and optics bundles from AT3 Tactical.</div>
+    </a>
+  </div>
+</section>
+
+<section id="products">
+  <div class="sec-label">Full Catalog</div>
+  <h2 id="cat-title">All Products</h2>
+  <p class="sec-sub" id="cat-sub">Browse our current catalog of ammunition, uppers, parts, and accessories — available by request with confirmed pricing.</p>
+  <div class="order-note">
+    <strong>How ordering works:</strong> Eloah Tactical operates on an order-on-demand model. Products are sourced after order confirmation, and secure invoices are issued through GunTab for payment and completion.
+  </div>
+  <div class="filter-bar">
+    <button class="fbtn active" onclick="fp('all',this)">All</button>
+    <button class="fbtn" onclick="fp('handgun',this)">Handgun</button>
+    <button class="fbtn" onclick="fp('rifle',this)">Rifle</button>
+    <button class="fbtn" onclick="fp('rimfire',this)">Rimfire</button>
+    <button class="fbtn" onclick="fp('shotshell',this)">Shotshell</button>
+    <button class="fbtn" onclick="fp('parts',this)">Parts</button>
+    <button class="fbtn" onclick="fp('optics',this)">Optics</button>
+  </div>
+  <div class="pgrid" id="pg">
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Aguila</div>
+      <div class="pc-name">9mm - 115gr FMJ - 50 Box</div>
+      <div class="pc-var">AG-9-115-FMJ-50</div>
+      <div class="pc-foot">
+        <div class="pc-price">$31</div>
+        <a class="pc-req" href="#" data-subj="Request Order: Aguila 9mm - 115gr FMJ - 50 Box" data-body="Hello,\n\nI would like to request an order for:\nAguila 9mm - 115gr FMJ - 50 Box\nSKU: AG-9-115-FMJ-50\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Federal</div>
+      <div class="pc-name">9mm - 124gr JHP - 20 Box</div>
+      <div class="pc-var">FEDP-9-124-JHP-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Federal 9mm - 124gr JHP - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nFederal 9mm - 124gr JHP - 20 Box\nSKU: FEDP-9-124-JHP-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">9mm - 115gr JHP - 20 Box</div>
+      <div class="pc-var">PMC-9-115-JHP-20</div>
+      <div class="pc-foot">
+        <div class="pc-price">$24</div>
+        <a class="pc-req" href="#" data-subj="Request Order: PMC 9mm - 115gr JHP - 20 Box" data-body="Hello,\n\nI would like to request an order for:\nPMC 9mm - 115gr JHP - 20 Box\nSKU: PMC-9-115-JHP-20\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">9mm - 115gr FMJ - 50 Box</div>
+      <div class="pc-var">PMC-9-115-FMJ-50</div>
+      <div class="pc-foot">
+        <div class="pc-price">$15</div>
+        <a class="pc-req" href="#" data-subj="Request Order: PMC 9mm - 115gr FMJ - 50 Box" data-body="Hello,\n\nI would like to request an order for:\nPMC 9mm - 115gr FMJ - 50 Box\nSKU: PMC-9-115-FMJ-50\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">9mm - 115gr FMJ - 1000 CASE</div>
+      <div class="pc-var">PMC-9-115-FMJ-1000C</div>
+      <div class="pc-foot">
+        <div class="pc-price">$290</div>
+        <a class="pc-req" href="#" data-subj="Request Order: PMC 9mm - 115gr FMJ - 1000 CASE" data-body="Hello,\n\nI would like to request an order for:\nPMC 9mm - 115gr FMJ - 1000 CASE\nSKU: PMC-9-115-FMJ-1000C\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">5.56 NATO - 55gr FMJ - 20 Box</div>
+      <div class="pc-var">PMCX-556-55-FMJ-20</div>
+      <div class="pc-foot">
+        <div class="pc-price">$12</div>
+        <a class="pc-req" href="#" data-subj="Request Order: PMC 5.56 NATO - 55gr FMJ - 20 Box" data-body="Hello,\n\nI would like to request an order for:\nPMC 5.56 NATO - 55gr FMJ - 20 Box\nSKU: PMCX-556-55-FMJ-20\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">5.56 NATO - 55gr FMJ - 1000 CASE</div>
+      <div class="pc-var">PMCX-556-55-FMJ-1000C</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: PMC 5.56 NATO - 55gr FMJ - 1000 CASE" data-body="Hello,\n\nPlease send pricing and availability for:\nPMC 5.56 NATO - 55gr FMJ - 1000 CASE\nSKU: PMCX-556-55-FMJ-1000C\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">5.56 NATO - 62gr FMJ - 20 Box</div>
+      <div class="pc-var">PMCX-556-62-FMJ-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: PMC 5.56 NATO - 62gr FMJ - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nPMC 5.56 NATO - 62gr FMJ - 20 Box\nSKU: PMCX-556-62-FMJ-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">.223 Rem - 55gr FMJ - 20 Box</div>
+      <div class="pc-var">PMC-223-55-FMJ-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: PMC .223 Rem - 55gr FMJ - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nPMC .223 Rem - 55gr FMJ - 20 Box\nSKU: PMC-223-55-FMJ-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">PMC</div>
+      <div class="pc-name">.45 ACP - 230gr FMJ - 50 Box</div>
+      <div class="pc-var">PMC-45ACP-230-FMJ-50</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: PMC .45 ACP - 230gr FMJ - 50 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nPMC .45 ACP - 230gr FMJ - 50 Box\nSKU: PMC-45ACP-230-FMJ-50\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">NORMA</div>
+      <div class="pc-name">5.56 NATO - 55gr FMJ - 20 Box</div>
+      <div class="pc-var">NOR-556-FMJ-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: NORMA 5.56 NATO - 55gr FMJ - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nNORMA 5.56 NATO - 55gr FMJ - 20 Box\nSKU: NOR-556-FMJ-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">NORMA</div>
+      <div class="pc-name">300 BLK - 147gr FMJ - 20 Box</div>
+      <div class="pc-var">NOR-300BLK-147-FMJ-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: NORMA 300 BLK - 147gr FMJ - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nNORMA 300 BLK - 147gr FMJ - 20 Box\nSKU: NOR-300BLK-147-FMJ-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">SIG Sauer</div>
+      <div class="pc-name">9mm - 115gr JHP - 20 Box</div>
+      <div class="pc-var">SIGS-9-115-JHP-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: SIG Sauer 9mm - 115gr JHP - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nSIG Sauer 9mm - 115gr JHP - 20 Box\nSKU: SIGS-9-115-JHP-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Hornady</div>
+      <div class="pc-name">9mm - 115gr FTX - 25 Box</div>
+      <div class="pc-var">HCD-9-115-FTX-25</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Hornady 9mm - 115gr FTX - 25 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nHornady 9mm - 115gr FTX - 25 Box\nSKU: HCD-9-115-FTX-25\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Hornady</div>
+      <div class="pc-name">.38 Special - 110gr FTX - 25 Box</div>
+      <div class="pc-var">HCD-38-110-FTX-25</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Hornady .38 Special - 110gr FTX - 25 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nHornady .38 Special - 110gr FTX - 25 Box\nSKU: HCD-38-110-FTX-25\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tpa">Parts</div>
+      <div class="pc-brand">Timney</div>
+      <div class="pc-name">Timney Trigger - Savage AccuTrigger Regular</div>
+      <div class="pc-var">TIM-SAV-ACC-BLK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Timney Timney Trigger - Savage AccuTrigger Regular" data-body="Hello,\n\nPlease send pricing and availability for:\nTimney Timney Trigger - Savage AccuTrigger Regular\nSKU: TIM-SAV-ACC-BLK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Enhanced AR-15 Lower Build Kit w/ Magpul MOE + CTR Stock</div>
+      <div class="pc-var">AT3-AR15-LBK-ENH-CTR-KIT</div>
+      <div class="pc-foot">
+        <div class="pc-price">$222</div>
+        <a class="pc-req" href="#" data-subj="Request Order: AT3 Tactical AT3 Enhanced AR-15 Lower Build Kit w/ Magpul MOE + CTR Stock" data-body="Hello,\n\nI would like to request an order for:\nAT3 Tactical AT3 Enhanced AR-15 Lower Build Kit w/ Magpul MOE + CTR Stock\nSKU: AT3-AR15-LBK-ENH-CTR-KIT\n\nPlease confirm pricing and availability.\n" onclick="sendEmail(this);return false;">Request Order →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 RD-50 PRO Micro Red Dot Sight | 2 MOA | Lifetime Warranty</div>
+      <div class="pc-var">AT3-OPT-RD50PRO</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 RD-50 PRO Micro Red Dot Sight | 2 MOA | Lifetime Warranty" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 RD-50 PRO Micro Red Dot Sight | 2 MOA | Lifetime Warranty\nSKU: AT3-OPT-RD50PRO\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 ALPHA Red Dot Sight | Shake Awake | 2 MOA</div>
+      <div class="pc-var">AT3-OPT-ALPHA</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 ALPHA Red Dot Sight | Shake Awake | 2 MOA" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 ALPHA Red Dot Sight | Shake Awake | 2 MOA\nSKU: AT3-OPT-ALPHA\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 LEOS Red Dot Sight w/ Integrated Laser | 2 MOA</div>
+      <div class="pc-var">AT3-OPT-LEOS</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 LEOS Red Dot Sight w/ Integrated Laser | 2 MOA" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 LEOS Red Dot Sight w/ Integrated Laser | 2 MOA\nSKU: AT3-OPT-LEOS\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 RCO Red Dot Sight | Circle Dot Reticle | Night Vision Compatible</div>
+      <div class="pc-var">AT3-OPT-RCO</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 RCO Red Dot Sight | Circle Dot Reticle | Night Vision Compatible" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 RCO Red Dot Sight | Circle Dot Reticle | Night Vision Compatible\nSKU: AT3-OPT-RCO\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 ARO Micro Red Dot Sight | Open Emitter | Pistol & Rifle</div>
+      <div class="pc-var">AT3-OPT-ARO</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 ARO Micro Red Dot Sight | Open Emitter | Pistol & Rifle" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 ARO Micro Red Dot Sight | Open Emitter | Pistol & Rifle\nSKU: AT3-OPT-ARO\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 RRDM 3x Magnifier w/ Flip-to-Side QD Mount</div>
+      <div class="pc-var">AT3-MAG-RRDM-3X</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 RRDM 3x Magnifier w/ Flip-to-Side QD Mount" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 RRDM 3x Magnifier w/ Flip-to-Side QD Mount\nSKU: AT3-MAG-RRDM-3X\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 ALPHA Red Dot + RRDM 3x Magnifier Kit | Bundle</div>
+      <div class="pc-var">AT3-KIT-ALPHA-RRDM</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 ALPHA Red Dot + RRDM 3x Magnifier Kit | Bundle" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 ALPHA Red Dot + RRDM 3x Magnifier Kit | Bundle\nSKU: AT3-KIT-ALPHA-RRDM\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="optics">
+      <div class="pt top">Optics</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 RD-50 PRO Red Dot + RRDM 3x Magnifier Kit | Bundle</div>
+      <div class="pc-var">AT3-KIT-RD50-RRDM</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 RD-50 PRO Red Dot + RRDM 3x Magnifier Kit | Bundle" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 RD-50 PRO Red Dot + RRDM 3x Magnifier Kit | Bundle\nSKU: AT3-KIT-RD50-RRDM\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 SPEAR M-LOK Free Float Handguard | 9"</div>
+      <div class="pc-var">AT3-HG-SPEAR-MLOK-9</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 SPEAR M-LOK Free Float Handguard | 9&quot;" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 SPEAR M-LOK Free Float Handguard | 9&quot;\nSKU: AT3-HG-SPEAR-MLOK-9\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 SPEAR M-LOK Free Float Handguard | 12"</div>
+      <div class="pc-var">AT3-HG-SPEAR-MLOK-12</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 SPEAR M-LOK Free Float Handguard | 12&quot;" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 SPEAR M-LOK Free Float Handguard | 12&quot;\nSKU: AT3-HG-SPEAR-MLOK-12\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 SPEAR XL M-LOK Handguard | Extended Length</div>
+      <div class="pc-var">AT3-HG-SPEAR-XL-MLOK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 SPEAR XL M-LOK Handguard | Extended Length" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 SPEAR XL M-LOK Handguard | Extended Length\nSKU: AT3-HG-SPEAR-XL-MLOK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Pro Series Flip-Up BUIS Front & Rear Set</div>
+      <div class="pc-var">AT3-BUIS-PROSERIES-SET</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Pro Series Flip-Up BUIS Front & Rear Set" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Pro Series Flip-Up BUIS Front & Rear Set\nSKU: AT3-BUIS-PROSERIES-SET\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Black Nitride Bolt Carrier Group | 5.56 NATO | MPI Inspected | Made in USA</div>
+      <div class="pc-var">AT3-BCG-556-NITRIDE</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Black Nitride Bolt Carrier Group | 5.56 NATO | MPI Inspected | Made in USA" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Black Nitride Bolt Carrier Group | 5.56 NATO | MPI Inspected | Made in USA\nSKU: AT3-BCG-556-NITRIDE\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Black Nitride BCG + Breek Arms Warhammer Ambidextrous Charging Handle Kit</div>
+      <div class="pc-var">AT3-KIT-BCG-WARHAMMER</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Black Nitride BCG + Breek Arms Warhammer Ambidextrous Charging Handle Kit" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Black Nitride BCG + Breek Arms Warhammer Ambidextrous Charging Handle Kit\nSKU: AT3-KIT-BCG-WARHAMMER\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Combat Flash Hider | 5.56 | 1/2x28 Thread | 4-Port</div>
+      <div class="pc-var">AT3-MUZ-FH556-COMBAT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Combat Flash Hider | 5.56 | 1/2x28 Thread | 4-Port" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Combat Flash Hider | 5.56 | 1/2x28 Thread | 4-Port\nSKU: AT3-MUZ-FH556-COMBAT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Combat Flash Hider | .300 BLK / .308 | 5/8x24 Thread | 4-Port</div>
+      <div class="pc-var">AT3-MUZ-FH300-COMBAT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Combat Flash Hider | .300 BLK / .308 | 5/8x24 Thread | 4-Port" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Combat Flash Hider | .300 BLK / .308 | 5/8x24 Thread | 4-Port\nSKU: AT3-MUZ-FH300-COMBAT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 Mil-Spec AR-15 Buffer Tube Kit | Buffer Tube, Castle Nut, Lock Plate, Spring & Buffer</div>
+      <div class="pc-var">AT3-BUF-TUBE-KIT-MILSPEC</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 Mil-Spec AR-15 Buffer Tube Kit | Buffer Tube, Castle Nut, Lock Plate, Spring & Buffer" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 Mil-Spec AR-15 Buffer Tube Kit | Buffer Tube, Castle Nut, Lock Plate, Spring & Buffer\nSKU: AT3-BUF-TUBE-KIT-MILSPEC\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">AT3 Tactical</div>
+      <div class="pc-name">AT3 M-LOK Rail Sections | Aluminum | Pack of 3</div>
+      <div class="pc-var">AT3-ACC-MLOK-RAIL-SEC</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: AT3 Tactical AT3 M-LOK Rail Sections | Aluminum | Pack of 3" data-body="Hello,\n\nPlease send pricing and availability for:\nAT3 Tactical AT3 M-LOK Rail Sections | Aluminum | Pack of 3\nSKU: AT3-ACC-MLOK-RAIL-SEC\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Breek Arms</div>
+      <div class="pc-name">Breek Arms Sledgehammer Gas Busting AR-15 Charging Handle | 7075-T6 Aluminum | 4 Colors</div>
+      <div class="pc-var">BRK-CH-SLEDGEHAMMER-AR15</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Breek Arms Breek Arms Sledgehammer Gas Busting AR-15 Charging Handle | 7075-T6 Aluminum | 4 Colors" data-body="Hello,\n\nPlease send pricing and availability for:\nBreek Arms Breek Arms Sledgehammer Gas Busting AR-15 Charging Handle | 7075-T6 Aluminum | 4 Colors\nSKU: BRK-CH-SLEDGEHAMMER-AR15\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">KVP</div>
+      <div class="pc-name">KVP 2.25" Magnum Linear Compensator | 1/2x28 | .22 Caliber | Black Nitride</div>
+      <div class="pc-var">KVP-MUZ-LC-225-1228</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: KVP KVP 2.25&quot; Magnum Linear Compensator | 1/2x28 | .22 Caliber | Black Nitride" data-body="Hello,\n\nPlease send pricing and availability for:\nKVP KVP 2.25&quot; Magnum Linear Compensator | 1/2x28 | .22 Caliber | Black Nitride\nSKU: KVP-MUZ-LC-225-1228\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">KVP</div>
+      <div class="pc-name">KVP 3.25" Magnum Linear Compensator | Multiple Threads & Calibers | Black Nitride</div>
+      <div class="pc-var">KVP-MUZ-LC-325-MULTI</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: KVP KVP 3.25&quot; Magnum Linear Compensator | Multiple Threads & Calibers | Black Nitride" data-body="Hello,\n\nPlease send pricing and availability for:\nKVP KVP 3.25&quot; Magnum Linear Compensator | Multiple Threads & Calibers | Black Nitride\nSKU: KVP-MUZ-LC-325-MULTI\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Ultradyne USA</div>
+      <div class="pc-name">Ultradyne USA Athena Linear Compensator | Multiple Threads & Calibers | Black Nitride</div>
+      <div class="pc-var">UD-MUZ-ATHENA-LC-MULTI</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Ultradyne USA Ultradyne USA Athena Linear Compensator | Multiple Threads & Calibers | Black Nitride" data-body="Hello,\n\nPlease send pricing and availability for:\nUltradyne USA Ultradyne USA Athena Linear Compensator | Multiple Threads & Calibers | Black Nitride\nSKU: UD-MUZ-ATHENA-LC-MULTI\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Parts</div>
+      <div class="pc-name">MGW AR15 5.56 16" Budget Upper Receiver Assembly</div>
+      <div class="pc-var">MGW-PARTS-AR15-556-16-BUDGET-UPPER</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Parts MGW AR15 5.56 16&quot; Budget Upper Receiver Assembly" data-body="Hello,\n\nPlease send pricing and availability for:\nParts MGW AR15 5.56 16&quot; Budget Upper Receiver Assembly\nSKU: MGW-PARTS-AR15-556-16-BUDGET-UPPER\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .300 Blackout Stormtrooper White Cerakote Side Charging Upper | 16" Parkerized Heavy | 1:8 | Carbine Gas | MLOK</div>
+      <div class="pc-var">BCA-UP-300BLK-16-SC-WHT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .300 Blackout Stormtrooper White Cerakote Side Charging Upper | 16&quot; Parkerized Heavy | 1:8 | Carbine Gas | MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .300 Blackout Stormtrooper White Cerakote Side Charging Upper | 16&quot; Parkerized Heavy | 1:8 | Carbine Gas | MLOK\nSKU: BCA-UP-300BLK-16-SC-WHT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Winchester</div>
+      <div class="pc-name">9mm Luger - 115gr FMJ - 50 Box</div>
+      <div class="pc-var">WIN-9MM-115-FMJ-50</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Winchester 9mm Luger - 115gr FMJ - 50 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nWinchester 9mm Luger - 115gr FMJ - 50 Box\nSKU: WIN-9MM-115-FMJ-50\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="handgun">
+      <div class="pt th">Handgun</div>
+      <div class="pc-brand">Winchester</div>
+      <div class="pc-name">9mm Luger - 115gr FMJ - 1000 CASE</div>
+      <div class="pc-var">WIN-9MM-115-FMJ-1000C</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Winchester 9mm Luger - 115gr FMJ - 1000 CASE" data-body="Hello,\n\nPlease send pricing and availability for:\nWinchester 9mm Luger - 115gr FMJ - 1000 CASE\nSKU: WIN-9MM-115-FMJ-1000C\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rimfire">
+      <div class="pt trf">Rimfire</div>
+      <div class="pc-brand">CCI</div>
+      <div class="pc-name">Blazer .22 LR 40gr LRN - 50 Box</div>
+      <div class="pc-var">CCI-22LR-LRN-40-50-BLAZER</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: CCI Blazer .22 LR 40gr LRN - 50 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nCCI Blazer .22 LR 40gr LRN - 50 Box\nSKU: CCI-22LR-LRN-40-50-BLAZER\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rifle">
+      <div class="pt tr">Rifle</div>
+      <div class="pc-brand">NORMA</div>
+      <div class="pc-name">6.5 PRC - 143gr BTHP - 20 Box</div>
+      <div class="pc-var">NOR-6.5PRC-143-BTHP-20</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: NORMA 6.5 PRC - 143gr BTHP - 20 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nNORMA 6.5 PRC - 143gr BTHP - 20 Box\nSKU: NOR-6.5PRC-143-BTHP-20\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="rimfire">
+      <div class="pt trf">Rimfire</div>
+      <div class="pc-brand">Federal</div>
+      <div class="pc-name">Gold Medal .22 LR 40gr RN - 50 Box</div>
+      <div class="pc-var">FED-22LR-RN-40-50-GM</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Federal Gold Medal .22 LR 40gr RN - 50 Box" data-body="Hello,\n\nPlease send pricing and availability for:\nFederal Gold Medal .22 LR 40gr RN - 50 Box\nSKU: FED-22LR-RN-40-50-GM\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 5.56 NATO Complete Upper | 16" M4 Parkerized | 1:7 | Carbine Gas | 15" MLOK</div>
+      <div class="pc-var">BCA-UP-556-16M4-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 5.56 NATO Complete Upper | 16&quot; M4 Parkerized | 1:7 | Carbine Gas | 15&quot; MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 5.56 NATO Complete Upper | 16&quot; M4 Parkerized | 1:7 | Carbine Gas | 15&quot; MLOK\nSKU: BCA-UP-556-16M4-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 5.56 NATO Stormtrooper White Cerakote Forged Upper | 16" Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included</div>
+      <div class="pc-var">BCA-UP-556-16-STW-FRG</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 5.56 NATO Stormtrooper White Cerakote Forged Upper | 16&quot; Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 5.56 NATO Stormtrooper White Cerakote Forged Upper | 16&quot; Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included\nSKU: BCA-UP-556-16-STW-FRG\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 5.56 NATO Stormtrooper White Cerakote Side Charging Upper | 16" Black Nitride Contour | 1:7 | Mid Gas | 15" MLOK | BCG Included</div>
+      <div class="pc-var">BCA-UP-556-16-STW-SC</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 5.56 NATO Stormtrooper White Cerakote Side Charging Upper | 16&quot; Black Nitride Contour | 1:7 | Mid Gas | 15&quot; MLOK | BCG Included" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 5.56 NATO Stormtrooper White Cerakote Side Charging Upper | 16&quot; Black Nitride Contour | 1:7 | Mid Gas | 15&quot; MLOK | BCG Included\nSKU: BCA-UP-556-16-STW-SC\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .223 Wylde Stormtrooper White Cerakote Forged Upper | 16" Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included</div>
+      <div class="pc-var">BCA-UP-223W-16-STW-FRG</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .223 Wylde Stormtrooper White Cerakote Forged Upper | 16&quot; Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .223 Wylde Stormtrooper White Cerakote Forged Upper | 16&quot; Parkerized Contour | 1:8 | Carbine Gas | MLOK | BCG Included\nSKU: BCA-UP-223W-16-STW-FRG\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .300 Blackout Upper | 8.5" Parkerized Heavy | 1:8 | Pistol Gas | Talon MLOK</div>
+      <div class="pc-var">BCA-UP-300B-85-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .300 Blackout Upper | 8.5&quot; Parkerized Heavy | 1:8 | Pistol Gas | Talon MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .300 Blackout Upper | 8.5&quot; Parkerized Heavy | 1:8 | Pistol Gas | Talon MLOK\nSKU: BCA-UP-300B-85-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .223 Wylde Complete Upper | 16" M4 | 1:7 | Mid Gas | MLOK</div>
+      <div class="pc-var">BCA-UP-223W-16M4-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .223 Wylde Complete Upper | 16&quot; M4 | 1:7 | Mid Gas | MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .223 Wylde Complete Upper | 16&quot; M4 | 1:7 | Mid Gas | MLOK\nSKU: BCA-UP-223W-16M4-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 7.62x39 Complete Upper | 16" Heavy | 1:10 | Carbine Gas | 15" MLOK</div>
+      <div class="pc-var">BCA-UP-762X39-16-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 7.62x39 Complete Upper | 16&quot; Heavy | 1:10 | Carbine Gas | 15&quot; MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 7.62x39 Complete Upper | 16&quot; Heavy | 1:10 | Carbine Gas | 15&quot; MLOK\nSKU: BCA-UP-762X39-16-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 5.56 NATO Right Side Charging Upper | 16" M4 | 1:7 | Mid Gas | 15" MLOK</div>
+      <div class="pc-var">BCA-UP-556-16-RSCK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 5.56 NATO Right Side Charging Upper | 16&quot; M4 | 1:7 | Mid Gas | 15&quot; MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 5.56 NATO Right Side Charging Upper | 16&quot; M4 | 1:7 | Mid Gas | 15&quot; MLOK\nSKU: BCA-UP-556-16-RSCK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .300 Blackout Right Side Charging Upper | 8.5" Heavy | 1:8 | Pistol Gas | Talon MLOK</div>
+      <div class="pc-var">BCA-UP-300B-85-RSCK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .300 Blackout Right Side Charging Upper | 8.5&quot; Heavy | 1:8 | Pistol Gas | Talon MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .300 Blackout Right Side Charging Upper | 8.5&quot; Heavy | 1:8 | Pistol Gas | Talon MLOK\nSKU: BCA-UP-300B-85-RSCK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-22 .22 LR Complete Upper | 16" Parkerized Heavy | 1:16 | Blowback | MLOK</div>
+      <div class="pc-var">BCA-UP-22LR-16-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-22 .22 LR Complete Upper | 16&quot; Parkerized Heavy | 1:16 | Blowback | MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-22 .22 LR Complete Upper | 16&quot; Parkerized Heavy | 1:16 | Blowback | MLOK\nSKU: BCA-UP-22LR-16-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-9 9mm Complete Upper | 16" Parkerized Heavy | 1:10 | Blowback | MLOK</div>
+      <div class="pc-var">BCA-UP-9MM-16-PK</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-9 9mm Complete Upper | 16&quot; Parkerized Heavy | 1:10 | Blowback | MLOK" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-9 9mm Complete Upper | 16&quot; Parkerized Heavy | 1:10 | Blowback | MLOK\nSKU: BCA-UP-9MM-16-PK\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 5.56 NATO Bolt Carrier Group | Black Nitride | Full Auto Cut</div>
+      <div class="pc-var">BCA-BCG-556-NIT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 5.56 NATO Bolt Carrier Group | Black Nitride | Full Auto Cut" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 5.56 NATO Bolt Carrier Group | Black Nitride | Full Auto Cut\nSKU: BCA-BCG-556-NIT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 .300 Blackout Bolt Carrier Group | Black Nitride</div>
+      <div class="pc-var">BCA-BCG-300B-NIT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 .300 Blackout Bolt Carrier Group | Black Nitride" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 .300 Blackout Bolt Carrier Group | Black Nitride\nSKU: BCA-BCG-300B-NIT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">BC-15 AR-15 Lower Parts Kit | Standard</div>
+      <div class="pc-var">BCA-LPK-AR15-STD</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal BC-15 AR-15 Lower Parts Kit | Standard" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal BC-15 AR-15 Lower Parts Kit | Standard\nSKU: BCA-LPK-AR15-STD\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">AR-15 Carbine Buffer Kit | Buffer Tube, Spring & Buffer</div>
+      <div class="pc-var">BCA-BUF-CAR-KIT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal AR-15 Carbine Buffer Kit | Buffer Tube, Spring & Buffer" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal AR-15 Carbine Buffer Kit | Buffer Tube, Spring & Buffer\nSKU: BCA-BUF-CAR-KIT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">AR-15 Pistol Buffer Kit | Pistol Tube, Spring & Buffer</div>
+      <div class="pc-var">BCA-BUF-PST-KIT</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal AR-15 Pistol Buffer Kit | Pistol Tube, Spring & Buffer" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal AR-15 Pistol Buffer Kit | Pistol Tube, Spring & Buffer\nSKU: BCA-BUF-PST-KIT\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">AR-15 5.56/.223 30-Round Magazine</div>
+      <div class="pc-var">BCA-MAG-556-30</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal AR-15 5.56/.223 30-Round Magazine" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal AR-15 5.56/.223 30-Round Magazine\nSKU: BCA-MAG-556-30\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+    <div class="pc fi-in" data-cat="parts">
+      <div class="pt tar">AR-15</div>
+      <div class="pc-brand">Bear Creek Arsenal</div>
+      <div class="pc-name">AR-15 .300 Blackout 30-Round Magazine</div>
+      <div class="pc-var">BCA-MAG-300B-30</div>
+      <div class="pc-foot">
+        <div class="pc-price tbd">Price on Request</div>
+        <a class="pc-req" href="#" data-subj="Request Pricing: Bear Creek Arsenal AR-15 .300 Blackout 30-Round Magazine" data-body="Hello,\n\nPlease send pricing and availability for:\nBear Creek Arsenal AR-15 .300 Blackout 30-Round Magazine\nSKU: BCA-MAG-300B-30\n" onclick="sendEmail(this);return false;">Request Pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="display:none" id="gunsmithing-section"></div>
+
+<section id="about">
+  <div class="about-visual" style="display:flex;align-items:center;justify-content:center;">
+    <img src="data:image/png;base64,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" alt="Eloah Tactical" style="width:100%;display:block;" />
+  </div>
+  <div>
+    <div class="sec-label">Our Story</div>
+    <h2>Built on Purpose.<br>Rooted in Nebraska.</h2>
+    <p class="abody">Eloah Tactical is a Nebraska-based, owner-operated business focused on practical product selection, straightforward communication, and secure invoice-based ordering. The goal is simple: offer trusted ammunition, uppers, parts, and accessories without marketplace friction or unnecessary complexity.</p>
+    <div class="apillars">
+      <div class="pillar">
+        <div class="ptitle">Selection</div>
+        <div class="pbody">A curated catalog of ammunition, uppers, parts, and accessories from trusted brands.</div>
+      </div>
+      <div class="pillar">
+        <div class="ptitle">Ordering</div>
+        <div class="pbody">Manual order confirmation with secure invoicing through GunTab after pricing and availability are verified.</div>
+      </div>
+      <div class="pillar">
+        <div class="ptitle">Value</div>
+        <div class="pbody">Competitive, order-on-demand sourcing designed to keep pricing practical without forcing deep inventory.</div>
+      </div>
+      <div class="pillar">
+        <div class="ptitle">Service</div>
+        <div class="pbody">Real responses, clear communication, and a cleaner buying process for customers who want direct help.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="brands">
+  <div class="bl">Brands We Carry</div>
+  <div class="brow">
+    <span class="bname">Federal</span>
+    <span class="bname">Hornady</span>
+    <span class="bname">PMC</span>
+    <span class="bname">SIG Sauer</span>
+    <span class="bname">Winchester</span>
+    <span class="bname">NORMA</span>
+    <span class="bname">Aguila</span>
+    <span class="bname">AT3 Tactical</span>
+    <span class="bname">Bear Creek Arsenal</span>
+    <span class="bname">Breek Arms</span>
+    <span class="bname">KVP</span>
+    <span class="bname">American Eagle</span>
+  </div>
+</div>
+
+<section id="contact">
+  <div>
+    <div class="sec-label">Get in Touch</div>
+    <h2>Questions?<br>Let's Talk.</h2>
+    <p class="cbody">Whether you're looking for bulk ammo pricing, a specific caliber, uppers, parts, and accessories — reach out. Availability is confirmed manually before invoicing.</p>
+    <div class="cdet"><div class="cdet-icon">@</div><div><div class="cdet-lbl">Email</div><div class="cdet-val">office [at] eloahtactical.com</div></div></div>
+    <div class="cdet"><div class="cdet-icon">&#9742;</div><div><div class="cdet-lbl">Phone</div><div class="cdet-val">402-937-3881</div></div></div>
+  </div>
+  <div>
+    <div class="fr"><input type="text" placeholder="Your Name" /></div>
+    <div class="fr"><input type="email" placeholder="Email Address" /></div>
+    <div class="fr">
+      <select>
+        <option value="" disabled selected>Subject</option>
+        <option>Request to Purchase</option>
+        <option>Request Pricing</option>
+        <option>Bulk / Case Pricing</option>
+        <option>Uppers, Parts &amp; Accessories Inquiry</option>
+        <option>Product Availability</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+    <div class="fr"><textarea placeholder="Your message..."></textarea></div>
+    <button class="fsub">Send Message</button>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div class="flogo">ELOAH <span>TACTICAL</span></div>
+    <ul class="flinks">
+      <li><a href="#categories">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="fcopy">© 2026 Eloah Tactical LLC — All Rights Reserved · eloahtactical.com</div>
+  <div class="fdisc">Product availability is confirmed manually prior to payment collection. Invoices are issued separately after order confirmation. All sales conducted in accordance with federal, state, and local law.</div>
+</footer>
+
+<script>
+function sendEmail(el) {
+  var subj = el.getAttribute('data-subj') || '';
+  var body = el.getAttribute('data-body') || '';
+  body = body.replace(/\\n/g, '\n');
+  var e = ['off','ice','@el','oah','tac','tic','al.','com'].join('');
+  window.location.href = 'mai' + 'lto:' + e + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+}
+
+var nav = document.querySelector('nav');
+window.addEventListener('scroll', function() {
+  nav.style.borderBottomColor = window.scrollY > 60 ? 'rgba(200,168,75,0.15)' : 'var(--border)';
+});
+
+var catInfo = {
+  all: { title: 'All Products', sub: 'Browse our current catalog of ammunition, uppers, parts, and accessories — available by request with confirmed pricing.' },
+  handgun: { title: 'Handgun Ammunition', sub: '9mm options including FMJ, JHP, and defensive loads.' },
+  rifle: { title: 'Rifle Ammunition', sub: '5.56 NATO, .223 Rem, 6.5 PRC, 7.62x39, .300 Blackout — with box and case options where available.' },
+  rimfire: { title: 'Rimfire Ammunition', sub: '.22 LR options for plinking, training, and defense.' },
+  shotshell: { title: 'Shotshell Ammunition', sub: '12 gauge field and target loads from Aguila.' },
+  parts: { title: 'Parts & Accessories', sub: 'Browse uppers, triggers, replacement parts, accessories, and shop supplies.' },
+  optics: { title: 'Optics', sub: 'Red dot sights, magnifiers, and optics bundles from AT3 Tactical.' }
+};
+
+function fp(cat, btn) {
+  document.querySelectorAll('.pc').forEach(function(card) {
+    var show = cat === 'all' || card.getAttribute('data-cat') === cat;
+    card.classList.toggle('hidden', !show);
+  });
+  if (btn && btn.classList.contains('fbtn')) {
+    document.querySelectorAll('.fbtn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+  var info = catInfo[cat] || catInfo.all;
+  document.getElementById('cat-title').textContent = info.title;
+  document.getElementById('cat-sub').textContent = info.sub;
+  document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
 </body>
 </html>
